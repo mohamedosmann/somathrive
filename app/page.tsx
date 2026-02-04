@@ -52,21 +52,21 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center pt-20">
-        <div className="container mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-[1920px] mx-auto px-6 md:px-[191px] relative z-20 grid lg:grid-cols-2 gap-20 xl:gap-32 items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="max-w-2xl"
+            className="max-w-4xl"
           >
-            <h1 className="text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight mb-8">
-              Helping Somali <br />
-              Students <br />
-              <span className="text-[#22c55e]">Learn, Grow & Access <br />
-                Global Opportunities</span>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight mb-6">
+              Helping Somali Students
             </h1>
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-[#22c55e] mb-10 leading-tight">
+              Learn, Grow & Access <br className="hidden md:block" /> Global Opportunities
+            </h2>
             <div className="flex flex-wrap gap-4">
-              <Link href="#programs" className="px-8 py-4 bg-[#22c55e] text-black font-bold rounded-xl hover:bg-white transition-all transform hover:-translate-y-1">
-                Explore Programs
+              <Link href="https://docs.google.com/forms/d/e/1FAIpQLScLrSQ6vBLkGbd6vA3OYws0IdAHgHMZ9tkpKcO4-N_aIuT6Xg/viewform?usp=dialog" target="_blank" className="px-8 py-4 bg-[#22c55e] text-black font-bold rounded-xl hover:bg-white transition-all">
+                Explore Scholarships
               </Link>
               <Link href="#about" className="px-8 py-4 border border-white/10 rounded-xl font-bold hover:bg-white/5 transition-all">
                 Learn More
