@@ -1,61 +1,56 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand: #22c55e;
-  --color-brand-deep: #0a2d1a;
-  --color-bg-dark: #020617;
-  --color-surface-dark: #0f172a;
-  --border-brand: rgba(34, 197, 94, 0.2);
+  --color-brand: #1a4d2e;
+  --color-brand-light: #22c55e;
+  --color-bg: #ffffff;
+  --color-text: #0a0a0a;
+  --color-muted: #666666;
+  --color-accent: #f4f7f5;
 }
 
 :root {
-  --brand: #22c55e;
-  --brand-deep: #0a2d1a;
-  --bg-dark: #020617;
+  --brand: #1a4d2e;
+  --brand-light: #22c55e;
+  --bg: #ffffff;
 }
 
 body {
-  color: #ffffff;
-  background: var(--bg-dark);
+  color: var(--color-text);
+  background: var(--color-bg);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Premium Dark Gradient Background */
-.bg-ilab-inspired {
-  background: radial-gradient(circle at 70% 20%, rgba(34, 197, 94, 0.12) 0%, transparent 60%),
-    radial-gradient(circle at 10% 80%, rgba(10, 45, 26, 0.25) 0%, transparent 60%),
-    #010409;
+.text-balance {
+  text-wrap: balance;
 }
 
-.pill-nav {
-  background: rgba(15, 23, 42, 0.8);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 9999px;
-  padding: 0.5rem 1rem;
+.section-padding {
+  @apply py-24 md:py-32;
 }
 
-.text-glow {
-  text-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+.container-narrow {
+  @apply max-w-6xl mx-auto px-6;
 }
 
-.glass-stat {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: all 0.3s ease;
+.heading-lg {
+  @apply text-4xl md:text-6xl font-bold tracking-tight leading-[1.1];
 }
 
-.glass-stat:hover {
-  background: rgba(34, 197, 94, 0.05);
-  border-color: rgba(34, 197, 94, 0.2);
+.card-minimal {
+  @apply p-8 rounded-2xl bg-[#f4f7f5] border border-transparent hover:border-green-200 transition-all duration-300;
 }
 
-.btn-ilab {
-  @apply px-8 py-3 bg-[#22c55e] text-black text-sm font-bold rounded-full hover:bg-[#16a34a] transition-all shadow-lg shadow-green-500/20 active:scale-95;
+.btn-brand {
+  @apply px-8 py-3 bg-[#1a4d2e] text-white rounded-full font-semibold hover:bg-[#123620] transition-all;
 }
 
-.nav-link-ilab {
-  @apply text-xs font-medium text-slate-400 hover:text-white transition-colors uppercase tracking-wider;
+.btn-outline {
+  @apply px-8 py-3 border border-gray-200 rounded-full font-semibold hover:border-black transition-all;
+}
+
+/* Image mask for hero */
+.hero-mask {
+  mask-image: linear-gradient(to right, black 50%, transparent 100%);
 }
