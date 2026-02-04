@@ -309,23 +309,29 @@ export default function Home() {
               <h2 className="text-3xl md:text-5xl font-black tracking-tighter italic uppercase">Support Our Mission</h2>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
               {ctaCards.map((card, idx) => (
-                <div key={idx} className="group h-[450px] [perspective:1500px]">
-                  <div className="relative h-full w-full rounded-[2.5rem] transition-all duration-1000 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer">
+                <div key={idx} className="group h-[500px] [perspective:2000px]">
+                  <div className="relative h-full w-full rounded-[3rem] transition-all duration-1000 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer">
                     {/* Front */}
-                    <div className="absolute inset-0 flex flex-col justify-between p-10 bg-white/[0.02] border border-white/5 rounded-[2.5rem] [backface-visibility:hidden]">
-                      <div className="text-[#22c55e] text-sm font-black tracking-widest uppercase opacity-40">0{idx + 1}</div>
-                      <h3 className="text-2xl font-black uppercase leading-none tracking-tighter italic">{card.title}</h3>
-                      <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white group-hover:bg-[#22c55e] group-hover:text-black group-hover:border-[#22c55e] transition-all">
-                        <span className="text-xl font-light">→</span>
+                    <div className="absolute inset-0 flex flex-col justify-between p-12 bg-gradient-to-br from-white/[0.05] to-transparent backdrop-blur-3xl border border-white/10 rounded-[3rem] [backface-visibility:hidden] group-hover:border-[#22c55e]/50 group-hover:shadow-[0_0_50px_rgba(34,197,94,0.15)] transition-all duration-500">
+                      <div className="flex justify-between items-start">
+                        <div className="text-[#22c55e] text-xs font-black tracking-[0.3em] uppercase">0{idx + 1}</div>
+                        <div className="w-2 h-2 rounded-full bg-[#22c55e] animate-pulse" />
+                      </div>
+                      <h3 className="text-2xl font-black uppercase leading-tight tracking-tighter italic">{card.title}</h3>
+                      <div className="w-12 h-12 rounded-2xl border border-white/5 bg-white/5 flex items-center justify-center text-white group-hover:bg-[#22c55e] group-hover:text-black transition-all duration-500">
+                        <span className="text-xl">→</span>
                       </div>
                     </div>
                     {/* Back */}
-                    <div className="absolute inset-0 h-full w-full rounded-[2.5rem] bg-[#22c55e] p-10 text-black [transform:rotateY(180deg)] [backface-visibility:hidden] flex flex-col justify-between">
-                      <p className="text-lg font-black leading-tight italic tracking-tight">{card.desc}</p>
-                      <Link href={card.link} target="_blank" className="w-full py-5 bg-black text-white font-black text-[10px] rounded-xl text-center uppercase tracking-widest hover:scale-105 transition-transform">
-                        Get Started
+                    <div className="absolute inset-0 h-full w-full rounded-[3rem] bg-[#22c55e] p-12 text-black [transform:rotateY(180deg)] [backface-visibility:hidden] flex flex-col justify-between shadow-[0_0_60px_rgba(34,197,94,0.3)]">
+                      <div>
+                        <div className="text-[10px] font-black uppercase tracking-[0.4em] mb-8 opacity-40">Information</div>
+                        <p className="text-xl font-black leading-tight italic tracking-tight">{card.desc}</p>
+                      </div>
+                      <Link href={card.link} target="_blank" className="w-full py-6 bg-black text-white font-black text-[10px] rounded-2xl text-center uppercase tracking-widest hover:scale-105 transition-transform shadow-xl">
+                        Open Portal
                       </Link>
                     </div>
                   </div>
