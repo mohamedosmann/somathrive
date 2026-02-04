@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #06090a;
-  --color-surface: #0c1114;
-  --color-foreground: #fcfcfc;
+  --color-background: #ffffff;
+  --color-surface: #f8fafc;
+  --color-foreground: #0f172a;
   --color-primary: #22c55e;
-  --color-primary-soft: rgba(34, 197, 94, 0.1);
-  --color-border: rgba(255, 255, 255, 0.06);
+  --color-primary-soft: rgba(34, 197, 94, 0.05);
+  --color-border: rgba(0, 0, 0, 0.05);
 }
 
 :root {
-  --background: #06090a;
-  --foreground: #fcfcfc;
+  --background: #ffffff;
+  --foreground: #0f172a;
   --primary: #22c55e;
-  --border: rgba(255, 255, 255, 0.06);
+  --border: rgba(0, 0, 0, 0.05);
 }
 
 body {
@@ -23,32 +23,34 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Glass effect refinements */
+/* Mesh Gradient Background */
+.mesh-gradient {
+  background-color: #ffffff;
+  background-image:
+    radial-gradient(at 0% 0%, rgba(34, 197, 94, 0.1) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(56, 189, 248, 0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(34, 197, 94, 0.05) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(20, 184, 166, 0.05) 0px, transparent 50%);
+}
+
+/* Glass effect refinements for light theme */
 .glass-nav {
-  background: rgba(6, 9, 10, 0.7);
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.02);
+  background: #ffffff;
   border: 1px solid var(--border);
-  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .glass-card:hover {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(34, 197, 94, 0.3);
   transform: translateY(-4px);
-}
-
-/* Hero refinements */
-.hero-gradient {
-  background: linear-gradient(180deg,
-      rgba(6, 9, 10, 0.4) 0%,
-      rgba(6, 9, 10, 0.8) 50%,
-      #06090a 100%);
+  box-shadow: 0 10px 30px rgba(34, 197, 94, 0.1);
+  border-color: rgba(34, 197, 94, 0.2);
 }
 
 /* Typography refinements */
@@ -56,11 +58,24 @@ h1,
 h2,
 h3,
 h4 {
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  color: #0f172a;
 }
 
 .text-gradient {
-  background: linear-gradient(to bottom right, #fff 30%, rgba(255, 255, 255, 0.5));
+  background: linear-gradient(to bottom right, #0f172a 30%, #334155);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.badge-pill {
+  @apply inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-gray-100 shadow-sm text-xs font-semibold text-gray-600;
+}
+
+.search-container {
+  @apply flex flex-col md:flex-row items-center gap-2 p-2 bg-white rounded-full shadow-xl border border-gray-100 max-w-2xl mx-auto;
+}
+
+.search-input {
+  @apply flex-1 px-6 py-3 bg-transparent outline-none text-sm text-gray-600 w-full;
 }

@@ -16,22 +16,22 @@ export default function Home() {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Programs", href: "#programs" },
-    { name: "Community", href: "#community" },
+    { name: "HOME", href: "#home" },
+    { name: "PROGRAMS", href: "#programs" },
+    { name: "ABOUT", href: "#about" },
+    { name: "COMMUNITY", href: "#community" },
   ];
 
   return (
-    <div className="min-h-screen selection:bg-[#22c55e]/30 font-sans text-gray-200 bg-[#06090a]">
+    <div className="min-h-screen selection:bg-[#22c55e]/30 font-sans text-slate-900 mesh-gradient">
       {/* Navigation */}
       <nav id="home" className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? "glass-nav py-3" : "py-6"}`}>
         <div className="container mx-auto px-6 flex justify-between items-center">
           <Link href="#home" className="flex items-center gap-3 group">
             <div className="w-10 h-10 rounded-xl bg-[#22c55e]/10 flex items-center justify-center border border-[#22c55e]/20 group-hover:scale-110 transition-transform">
-              <Image src="/logo.png" alt="SomaThrive Logo" width={24} height={24} className="invert" />
+              <Image src="/logo.png" alt="SomaThrive Logo" width={24} height={24} />
             </div>
-            <span className="text-xl font-bold tracking-tight text-white">Soma<span className="text-[#22c55e]">Thrive</span></span>
+            <span className="text-xl font-bold tracking-tight text-slate-900">Soma<span className="text-[#22c55e]">Thrive</span></span>
           </Link>
 
           <div className="hidden md:flex items-center gap-10">
@@ -39,20 +39,27 @@ export default function Home() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-gray-400 hover:text-white transition-colors"
+                className="text-xs font-bold text-slate-500 hover:text-[#22c55e] transition-colors tracking-widest uppercase"
               >
                 {link.name}
               </Link>
             ))}
+            <div className="h-4 w-[1px] bg-slate-200 mx-2" />
+            <Link
+              href="#login"
+              className="px-6 py-2 text-xs font-bold text-slate-600 hover:text-slate-900 transition-colors uppercase"
+            >
+              Log In
+            </Link>
             <Link
               href="#community"
-              className="px-6 py-2.5 bg-[#22c55e] text-black text-sm font-bold rounded-full hover:bg-[#16a34a] transition-all transform hover:scale-105"
+              className="px-8 py-2.5 bg-[#22c55e] text-white text-xs font-bold rounded-full hover:bg-[#16a34a] transition-all shadow-md shadow-[#22c55e]/20 uppercase tracking-widest"
             >
-              Get Started
+              Sign Up
             </Link>
           </div>
 
-          <button className="md:hidden text-gray-400 hover:text-white p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <button className="md:hidden text-slate-600 p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <div className="space-y-1.5 w-6">
               <div className={`h-0.5 w-full bg-current transition-all ${isMenuOpen ? "rotate-45 translate-y-2" : ""}`} />
               <div className={`h-0.5 w-full bg-current transition-all ${isMenuOpen ? "opacity-0" : ""}`} />
@@ -63,232 +70,174 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-20">
-        <Image
-          src="/hero-student.jpg"
-          alt="SomaThrive Student Session"
-          fill
-          className="object-cover object-right md:object-center"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#06090a] via-[#06090a]/60 to-transparent z-10" />
+      <section className="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-20 px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          className="max-w-4xl mx-auto text-center relative z-10"
+        >
+          <div className="badge-pill mb-8 mx-auto translate-y-[-10px]">
+            <span className="w-5 h-5 rounded-full bg-[#22c55e]/10 flex items-center justify-center">
+              <span className="w-2 h-2 rounded-full bg-[#22c55e]" />
+            </span>
+            <span className="uppercase tracking-widest text-[10px] font-black">Your #1 Platform for Somali Students</span>
+          </div>
 
-        <div className="container mx-auto px-6 relative z-20">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-4xl"
-          >
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-[1.1] mb-8 text-gradient text-left">
-              Helping Somali Students <br />
-              <span className="text-[#22c55e]">Learn, Grow & Access</span> <br />
-              Global Opportunities
-            </h1>
-            <p className="text-base md:text-lg text-gray-400 mb-12 max-w-xl leading-relaxed text-left">
-              SomaThrive is a student-focused education and opportunity platform supporting Somali youth to navigate scholarships, mentorship, and global learning pathways with clarity and confidence.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-5">
-              <Link href="#programs" className="px-10 py-4 bg-[#22c55e] text-black font-black rounded-2xl hover:bg-[#16a34a] transition-all hover:translate-y-[-2px] shadow-lg shadow-[#22c55e]/20 text-center">
-                Explore Scholarships
-              </Link>
-              <Link href="#community" className="px-10 py-4 bg-white/5 backdrop-blur-md border border-white/10 text-white font-bold rounded-2xl hover:bg-white/10 transition-all text-center">
-                Join Mentorship
-              </Link>
+          <h1 className="text-5xl md:text-8xl font-black leading-[1.1] mb-8 text-slate-900 tracking-tight">
+            Helping Somali Students <br />
+            <span className="text-[#22c55e]">Learn, Grow & Access</span> <br />
+            Global Opportunities.
+          </h1>
+
+          <p className="text-lg md:text-xl text-slate-500 mb-12 max-w-2xl mx-auto leading-relaxed">
+            SomaThrive is a student-focused education and opportunity platform supporting Somali youth to navigate scholarships, mentorship, and global learning pathways.
+          </p>
+
+          <div className="search-container mb-16">
+            <div className="flex items-center gap-3 px-6 flex-1 border-r border-slate-100 last:border-0">
+              <span className="text-[#22c55e] text-lg opacity-60">🔍</span>
+              <input type="text" placeholder="Search Programs..." className="search-input" />
             </div>
-          </motion.div>
+            <div className="flex items-center gap-3 px-6 flex-1 md:border-r border-slate-100">
+              <span className="text-[#22c55e] text-lg opacity-60">🎓</span>
+              <input type="text" placeholder="e.g. Graduate" className="search-input" />
+            </div>
+            <button className="w-full md:w-auto px-10 py-4 bg-[#22c55e] text-white font-bold rounded-full hover:bg-[#16a34a] transition-all">
+              Search
+            </button>
+          </div>
+        </motion.div>
+
+        {/* Soft Cards Row - Decorative */}
+        <div className="container mx-auto grid grid-cols-2 md:grid-cols-6 gap-4 h-64 mt-auto">
+          {[
+            { color: "bg-[#22c55e]/10", delay: 0 },
+            { color: "bg-blue-50", delay: 0.1 },
+            { color: "bg-orange-50", delay: 0.2 },
+            { color: "bg-purple-50", delay: 0.3 },
+            { color: "bg-yellow-50", delay: 0.4 },
+            { color: "bg-cyan-50", delay: 0.5 }
+          ].map((item, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: item.delay, duration: 0.8 }}
+              className={`${item.color} rounded-[2rem] h-full w-full border border-white`}
+            />
+          ))}
         </div>
       </section>
 
-      {/* Our Focus Areas */}
-      <section className="py-32 relative overflow-hidden bg-[#06090a]">
+      {/* Focus Areas Section */}
+      <section id="programs" className="py-32 relative bg-white border-t border-slate-100">
         <div className="container mx-auto px-6 text-center mb-24 relative z-10">
-          <span className="text-[#22c55e] font-bold tracking-widest uppercase text-xs mb-4 block">What SomaThrive Does</span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight text-white">Our Focus Areas</h2>
+          <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight text-slate-900 uppercase">What SomaThrive Does</h2>
+          <div className="w-16 h-1 bg-[#22c55e] mx-auto rounded-full" />
         </div>
 
-        <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+        <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
           {[
             {
               title: "Scholarship Guidance",
-              desc: "Clear, step-by-step guidance on international scholarships and study opportunities, delivered through online sessions and in-person student meetups."
+              desc: "Clear, step-by-step guidance on international scholarships and study opportunities.",
+              color: "bg-[#22c55e]/5"
             },
             {
               title: "Academic Mentorship",
-              desc: "Mentorship sessions that support students with academic planning, applications, and decision-making throughout their education journey."
+              desc: "Mentorship sessions that support students with academic planning and applications.",
+              color: "bg-blue-50"
             },
             {
               title: "Global Exposure",
-              desc: "Information sharing, webinars, and peer learning that expose students to global academic and professional pathways."
+              desc: "Webinars and peer learning that expose students to global academic pathways.",
+              color: "bg-orange-50"
             }
           ].map((item, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="p-10 rounded-[2.5rem] glass-card group text-left border-l-4 border-l-transparent hover:border-l-[#22c55e]"
+              whileHover={{ y: -10 }}
+              className={`p-12 rounded-[3.5rem] ${item.color} group transition-all duration-500`}
             >
-              <h3 className="text-xl font-bold mb-6 text-white group-hover:text-[#22c55e] transition-colors uppercase tracking-tight">{item.title}</h3>
-              <p className="text-gray-500 leading-relaxed font-medium mb-4">{item.desc}</p>
+              <h3 className="text-2xl font-black mb-6 text-slate-800 tracking-tight">{item.title}</h3>
+              <p className="text-slate-500 leading-relaxed font-medium mb-4">{item.desc}</p>
+              <div className="mt-8 flex items-center gap-2 text-[#22c55e] font-bold text-sm tracking-widest uppercase">
+                Learn More <span>→</span>
+              </div>
             </motion.div>
           ))}
         </div>
       </section>
 
-      {/* Why Trust Us */}
-      <section className="py-32 border-y border-white/5 bg-[#06090a]">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-20 items-center">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-10 text-white">Why Students Trust <br /><span className="text-[#22c55e]">SomaThrive</span></h2>
-              <div className="grid grid-cols-1 gap-6">
-                {[
-                  "Simple, clear guidance",
-                  "Student-focused and practical",
-                  "Built on real experience and global exposure",
-                  "Active community engagement"
-                ].map((text, idx) => (
-                  <div key={idx} className="flex items-center gap-4 group">
-                    <div className="w-6 h-6 rounded-full bg-[#22c55e] flex items-center justify-center text-black text-xs font-bold transition-transform group-hover:scale-125">✓</div>
-                    <span className="text-lg font-medium text-gray-300">{text}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="relative">
-              <div className="absolute -inset-10 bg-[#22c55e]/10 blur-[100px] rounded-full" />
-              <div className="relative p-1 rounded-[3rem] bg-gradient-to-br from-[#22c55e]/20 to-transparent">
-                <div className="bg-[#0c1114] rounded-[2.9rem] p-12 text-center">
-                  <h4 className="text-2xl font-bold mb-4 text-white">Join Our Community</h4>
-                  <p className="text-gray-500 mb-10 leading-relaxed">Stay updated on scholarships, mentorship opportunities, and upcoming events.</p>
-                  <div className="flex flex-col gap-4">
-                    <button className="w-full py-4 bg-[#22c55e] text-black font-black rounded-2xl hover:bg-[#16a34a] transition-all shadow-lg shadow-[#22c55e]/20">
-                      Join WhatsApp Community
-                    </button>
-                    <button className="w-full py-4 bg-white/5 border border-white/10 text-white font-bold rounded-2xl hover:bg-white/10 transition-all">
-                      Join Email List
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* About Section */}
-      <section id="about" className="py-32 bg-[#06090a]">
+      <section id="about" className="py-32 bg-slate-50">
         <div className="container mx-auto px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-24 mb-32">
-              <div>
-                <h2 className="text-4xl md:text-5xl font-bold mb-8 text-white">Who We Are</h2>
-                <p className="text-xl text-gray-400 leading-relaxed font-medium">
-                  SomaThrive is a youth-led education and opportunity platform dedicated to supporting Somali students to access quality learning and global opportunities. We work at the intersection of education, mentorship, and technology to bridge the gap between talent and opportunity for Somali students.
-                </p>
-              </div>
-              <div className="space-y-12">
-                <div>
-                  <h3 className="text-2xl font-bold text-[#22c55e] mb-4 uppercase tracking-widest">Our Mission</h3>
-                  <p className="text-lg text-gray-300">To increase access to global learning opportunities and academic support for Somali students.</p>
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-[#22c55e] mb-4 uppercase tracking-widest">Our Vision</h3>
-                  <p className="text-lg text-gray-300">A confident generation of Somali students competing globally with knowledge, and transforming the country.</p>
-                </div>
-              </div>
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+            <div className="relative aspect-square rounded-[4rem] overflow-hidden shadow-2xl">
+              <Image src="/hero-student.jpg" alt="SomaThrive Session" fill className="object-cover" />
             </div>
-
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-white mb-4 uppercase tracking-tight">Our Team</h2>
-              <div className="h-1 w-20 bg-[#22c55e] mx-auto rounded-full" />
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-              {[
-                { name: "Deqa Daud", role: "Co-founder" },
-                { name: "Farhia Dini", role: "Co-founder" },
-                { name: "Amiro Osman", role: "Program Coordinator" }
-              ].map((member, idx) => (
-                <div key={idx} className="text-center group">
-                  <div className="relative w-full aspect-square rounded-[3rem] overflow-hidden bg-[#0c1114] border border-white/5 mb-8 p-1">
-                    <div className="absolute inset-0 bg-[#22c55e] opacity-0 group-hover:opacity-10 transition-opacity" />
-                    <img
-                      src={`https://ui-avatars.com/api/?name=${member.name.replace(' ', '+')}&background=06090a&color=22c55e&size=400&font-size=0.3&bold=true`}
-                      className="w-full h-full object-cover rounded-[2.8rem] transition-all duration-500 opacity-80 group-hover:opacity-100"
-                      alt={member.name}
-                    />
-                  </div>
-                  <h4 className="text-2xl font-bold text-white mb-1 tracking-tight">{member.name}</h4>
-                  <p className="text-[#22c55e] font-bold tracking-[0.2em] text-[10px] uppercase">{member.role}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Programs Section */}
-      <section id="programs" className="py-32 bg-[#080b0c] relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#22c55e]/5 blur-[120px] rounded-full pointer-events-none" />
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="flex flex-col md:flex-row gap-20 items-center max-w-6xl mx-auto">
-            <div className="md:w-1/2 text-left">
-              <h2 className="text-4xl md:text-6xl font-black text-white mb-8 tracking-tighter">Webinars</h2>
-              <p className="text-xl text-gray-400 font-medium leading-relaxed mb-10">
-                Live, interactive sessions that provide practical guidance on studying abroad, scholarships, and navigating global opportunities, led by experienced mentors and guest speakers.
+            <div>
+              <h2 className="text-4xl md:text-5xl font-black mb-8 text-slate-900 tracking-tight uppercase">Who We Are</h2>
+              <p className="text-xl text-slate-500 leading-relaxed font-medium mb-12">
+                SomaThrive is a youth-led education and opportunity platform dedicated to supporting Somali students to access quality learning and global opportunities.
               </p>
-              <button className="px-10 py-5 bg-white text-black font-black rounded-2xl hover:bg-[#22c55e] transition-all text-lg">
-                Join Next Session
-              </button>
-            </div>
-            <div className="md:w-1/2 relative group">
-              <div className="relative aspect-square md:aspect-[4/5] rounded-[3.5rem] overflow-hidden border border-white/5 shadow-2xl">
-                <Image src="/classroom-bg.jpg" alt="Webinar" fill className="object-cover scale-110 group-hover:scale-100 transition-transform duration-1000 opacity-60 group-hover:opacity-100" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                <div className="absolute bottom-10 left-10 p-2 bg-[#22c55e] text-black font-black text-[10px] rounded uppercase tracking-widest">Live Interactive</div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <h3 className="text-xs font-black text-[#22c55e] mb-2 uppercase tracking-widest">Our Mission</h3>
+                  <p className="text-slate-600 font-medium">To increase access to global learning opportunities and academic support.</p>
+                </div>
+                <div>
+                  <h3 className="text-xs font-black text-[#22c55e] mb-2 uppercase tracking-widest">Our Vision</h3>
+                  <p className="text-slate-600 font-medium">A confident generation of Somali students competing globally with knowledge.</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Community Section */}
-      <section id="community" className="py-32 bg-[#06090a] text-center">
-        <div className="container mx-auto px-6">
-          <motion.div
-            whileHover={{ y: -5 }}
-            className="p-20 rounded-[4rem] border border-white/5 bg-gradient-to-t from-white/[0.02] to-transparent inline-block max-w-4xl w-full"
-          >
-            <h2 className="text-5xl md:text-6xl font-black text-white mb-8 tracking-tighter">Transforming the country.</h2>
-            <p className="text-xl text-gray-400 mb-12 font-medium">Be part of the generation that competes globally.</p>
-            <div className="flex flex-wrap justify-center gap-6">
-              <button className="px-12 py-5 bg-[#22c55e] text-black font-black rounded-2xl hover:ring-8 hover:ring-[#22c55e]/10 transition-all text-lg uppercase tracking-tight">
-                Join Community
-              </button>
-              <button className="px-12 py-5 bg-white/5 border border-white/10 text-white font-black rounded-2xl hover:bg-white/10 transition-all text-lg uppercase tracking-tight">
-                Email List
-              </button>
-            </div>
-          </motion.div>
+      {/* Team Section */}
+      <section className="py-32 bg-white">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-4xl font-black text-slate-900 mb-20 uppercase tracking-tight">Our Team</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+            {[
+              { name: "Deqa Daud", role: "Co-founder" },
+              { name: "Farhia Dini", role: "Co-founder" },
+              { name: "Amiro Osman", role: "Program Coordinator" }
+            ].map((member, idx) => (
+              <div key={idx} className="group">
+                <div className="relative w-48 h-48 mx-auto rounded-full overflow-hidden bg-slate-100 mb-8 shadow-xl">
+                  <img
+                    src={`https://ui-avatars.com/api/?name=${member.name.replace(' ', '+')}&background=22c55e&color=fff&size=400&font-size=0.3&bold=true`}
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                    alt={member.name}
+                  />
+                </div>
+                <h4 className="text-2xl font-black text-slate-900 mb-1">{member.name}</h4>
+                <p className="text-[#22c55e] font-black tracking-widest text-[10px] uppercase">{member.role}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-20 border-t border-white/5 bg-[#06090a]">
+      <footer className="py-20 bg-white border-t border-slate-100">
         <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10">
           <div className="flex items-center gap-3">
-            <Image src="/logo.png" alt="SomaThrive Logo" width={32} height={32} className="invert opacity-20" />
-            <span className="text-lg font-bold text-gray-700 tracking-tight italic">SomaThrive</span>
+            <div className="w-8 h-8 rounded-lg bg-[#22c55e]/10 flex items-center justify-center">
+              <Image src="/logo.png" alt="SomaThrive Logo" width={16} height={16} />
+            </div>
+            <span className="text-lg font-bold text-slate-900 tracking-tight">SomaThrive</span>
           </div>
-          <p className="text-gray-800 text-xs font-black uppercase tracking-[0.3em] font-mono">
-            &copy; {new Date().getFullYear()} SomaThrive
+          <p className="text-slate-400 text-xs font-bold uppercase tracking-[0.3em]">
+            &copy; {new Date().getFullYear()} SomaThrive - All rights reserved
           </p>
           <div className="flex gap-10">
-            {["Twitter", "LinkedIn", "Insta"].map((social) => (
-              <Link key={social} href="#" className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-800 hover:text-[#22c55e] transition-colors">
+            {["Twitter", "LinkedIn", "Instagram"].map((social) => (
+              <Link key={social} href="#" className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 hover:text-[#22c55e] transition-colors">
                 {social}
               </Link>
             ))}
