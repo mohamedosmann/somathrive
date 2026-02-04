@@ -113,7 +113,7 @@ export default function Home() {
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             className="max-w-4xl"
           >
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-inter font-black leading-[1.1] mb-8 text-white tracking-tighter">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-inter font-black leading-[1.1] mb-8 text-white tracking-tighter uppercase italic">
               Helping Somali <br /> Students <br />
               <span className="text-[#22c55e]">Learn, Grow & Access</span> <br />
               Global Opportunities
