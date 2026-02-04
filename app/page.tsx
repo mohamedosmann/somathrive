@@ -47,7 +47,10 @@ export default function Home() {
       {/* NAVIGATION */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${isScrolled ? "bg-[#06090a]/80 backdrop-blur-2xl py-6" : "py-12"}`}>
         <div className="max-w-[1920px] mx-auto px-6 md:px-[191px] flex justify-between items-center">
-          <Link href="/" className="text-2xl font-black tracking-tighter">Soma<span className="text-[#22c55e]">Thrive</span></Link>
+          <div className="flex items-center gap-6">
+            <Link href="/" className="text-2xl font-black tracking-tighter">Soma<span className="text-[#22c55e]">Thrive</span></Link>
+            <span className="px-3 py-1 bg-[#22c55e]/10 text-[#22c55e] border border-[#22c55e]/20 text-[9px] font-black uppercase tracking-[0.2em] rounded-full">Maintenance Undergoing</span>
+          </div>
           <div className="hidden md:flex items-center gap-16">
             {navLinks.map((link) => (
               <Link key={link.name} href={link.href} className="text-[10px] font-black text-gray-400 hover:text-white transition-colors tracking-[0.2em] uppercase">{link.name}</Link>
