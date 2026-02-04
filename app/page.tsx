@@ -25,10 +25,10 @@ export default function Home() {
   return (
     <div className="min-h-screen selection:bg-[#22c55e]/30 font-sans text-gray-200 bg-[#06090a]">
       {/* Navigation */}
-      <header className="fixed top-6 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-7xl z-50">
+      <header className="fixed top-6 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-6xl z-50">
         <nav
           id="home"
-          className={`transition-all duration-500 rounded-full px-8 flex justify-between items-center ${isScrolled ? "glass-nav py-3 border border-white/10 shadow-2xl" : "py-5 bg-[#06090a]/40 backdrop-blur-md border border-white/5"
+          className={`transition-all duration-500 rounded-full px-8 flex justify-between items-center ${isScrolled ? "glass-nav py-2 border border-white/10 shadow-2xl" : "py-3 bg-[#06090a]/40 backdrop-blur-md border border-white/5"
             }`}
         >
           <Link href="#home" className="flex items-center gap-3 group">
