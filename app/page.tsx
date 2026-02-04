@@ -66,7 +66,7 @@ export default function Home() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             >
-              <h1 className="text-6xl md:text-8xl lg:text-[7rem] font-black leading-[0.9] tracking-tighter mb-12">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-[1] tracking-tighter mb-10">
                 Helping Somali <br /> Students <br />
                 <span className="text-[#22c55e]">Learn, Grow <br /> & Access</span>
               </h1>
@@ -117,8 +117,8 @@ export default function Home() {
                   className="max-w-xl"
                 >
                   <span className="text-[#22c55e] text-[10px] font-black uppercase tracking-[0.5em] mb-8 block">Who We Are</span>
-                  <h2 className="text-4xl md:text-6xl font-black mb-10 tracking-tighter leading-none">Bridging the gap <br /> between talent & <br /> opportunity.</h2>
-                  <p className="text-xl text-gray-400 leading-relaxed font-medium">
+                  <h2 className="text-3xl md:text-5xl font-black mb-8 tracking-tighter leading-tight">Bridging the gap <br /> between talent & <br /> opportunity.</h2>
+                  <p className="text-lg text-gray-400 leading-relaxed font-medium">
                     SomaThrive is a youth-led platform dedicated to supporting Somali students to access quality learning and global opportunities.
                   </p>
                 </motion.div>
@@ -131,7 +131,7 @@ export default function Home() {
                   className="p-12 rounded-[3.5rem] bg-white/[0.03] border border-white/5"
                 >
                   <h4 className="text-[#22c55e] text-[10px] font-black uppercase tracking-widest mb-6">Our Mission</h4>
-                  <p className="text-lg text-gray-300 font-medium leading-relaxed">
+                  <p className="text-base text-gray-300 font-medium leading-relaxed">
                     To increase access to global learning opportunities and academic support for Somali students worldwide.
                   </p>
                 </motion.div>
@@ -145,7 +145,7 @@ export default function Home() {
                   className="p-12 rounded-[3.5rem] bg-white/[0.03] border border-white/5"
                 >
                   <h4 className="text-[#22c55e] text-[10px] font-black uppercase tracking-widest mb-6">Our Vision</h4>
-                  <p className="text-lg text-gray-300 font-medium leading-relaxed">
+                  <p className="text-base text-gray-300 font-medium leading-relaxed">
                     A confident generation of Somali students competing globally with knowledge, and transforming the country.
                   </p>
                 </motion.div>
@@ -161,8 +161,8 @@ export default function Home() {
               {focusAreas.map((area, idx) => (
                 <div key={idx} className="group p-12 rounded-[3.5rem] bg-white/[0.01] border border-white/5 hover:bg-white/[0.03] transition-all">
                   <div className="text-[#22c55e] font-black text-sm mb-8 tracking-widest uppercase">0{idx + 1}</div>
-                  <h3 className="text-3xl font-black mb-8 italic">{area.title}</h3>
-                  <p className="text-lg text-gray-500 font-medium leading-relaxed">{area.desc}</p>
+                  <h3 className="text-2xl font-black mb-6 italic">{area.title}</h3>
+                  <p className="text-base text-gray-500 font-medium leading-relaxed">{area.desc}</p>
                 </div>
               ))}
             </div>
@@ -172,7 +172,7 @@ export default function Home() {
         {/* TEAM */}
         <section className="py-40 bg-[#080b0c]">
           <div className="max-w-[1920px] mx-auto px-6 md:px-[191px]">
-            <h3 className="text-5xl font-black mb-24 uppercase italic text-center">Our Team</h3>
+            <h3 className="text-4xl font-black mb-20 uppercase italic text-center">Our Team</h3>
             <div className="grid md:grid-cols-3 gap-16">
               {team.map((member, idx) => (
                 <div key={idx} className="text-center group">
@@ -191,7 +191,7 @@ export default function Home() {
         <section id="contact" className="py-40">
           <div className="max-w-[1920px] mx-auto px-6 md:px-[191px]">
             <div className="max-w-4xl mx-auto bg-white/[0.02] border border-white/5 rounded-[4rem] p-16 md:p-24 text-center">
-              <h2 className="text-4xl md:text-7xl font-black mb-12 tracking-tighter italic">Get In Touch</h2>
+              <h2 className="text-3xl md:text-5xl font-black mb-10 tracking-tighter italic">Get In Touch</h2>
               <div className="grid md:grid-cols-3 gap-12 mb-16">
                 <div>
                   <h4 className="text-[#22c55e] text-[10px] font-black uppercase tracking-widest mb-2">Email</h4>
