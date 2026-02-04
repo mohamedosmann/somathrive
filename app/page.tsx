@@ -99,7 +99,7 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center pt-32 pb-20 bg-[#06090a] overflow-hidden">
         <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-[#22c55e]/5 blur-[120px] rounded-full pointer-events-none" />
 
-        <div className="max-w-[1600px] mx-auto px-6 md:px-12 relative z-20 grid lg:grid-cols-2 gap-20 xl:gap-32 items-center">
+        <div className="max-w-[1920px] mx-auto px-6 md:px-[191px] relative z-20 grid lg:grid-cols-2 gap-20 xl:gap-32 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -109,13 +109,13 @@ export default function Home() {
             <span className="text-[#facc15] text-[10px] font-black uppercase tracking-[0.4em] mb-6 block">
               Empowering Somali Youth
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-roboto font-black leading-[0.95] mb-8 text-white tracking-tighter uppercase italic">
-              Helping Students <br />
-              <span className="text-[#22c55e]">Learn & Grow</span> <br />
-              Globally
+            <h1 className="text-4xl md:text-5xl lg:text-7xl xl:text-[6rem] font-roboto font-black leading-[1.05] mb-8 text-white tracking-tighter uppercase italic">
+              Helping Somali <br /> Students <br />
+              <span className="text-[#22c55e]">Learn, Grow & Access</span> <br />
+              Global Opportunities
             </h1>
-            <p className="text-base md:text-lg text-gray-400 mb-10 max-w-lg leading-relaxed font-medium">
-              SomaThrive is a student-focused education and opportunity platform supporting Somali youth to navigate scholarships, mentorship, and global learning pathways with clarity and confidence.
+            <p className="text-base md:text-lg text-gray-400 mb-10 max-w-md leading-relaxed font-medium">
+              Supporting Somali youth to navigate global scholarships and mentorship with confidence.
             </p>
             <div className="flex flex-col sm:flex-row gap-5">
               <Link href="#programs" className="px-10 py-4 bg-[#22c55e] text-black font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-white transition-all hover:translate-y-[-2px] shadow-lg shadow-[#22c55e]/10 text-center">
