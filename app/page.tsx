@@ -25,11 +25,15 @@ export default function Home() {
   return (
     <div className="min-h-screen selection:bg-[#22c55e]/30 font-sans text-gray-200 bg-[#06090a]">
       {/* Navigation */}
-      <nav id="home" className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? "glass-nav py-3" : "py-6"}`}>
-        <div className="container mx-auto px-6 flex justify-between items-center">
+      <header className="fixed top-6 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-7xl z-50">
+        <nav
+          id="home"
+          className={`transition-all duration-500 rounded-full px-8 flex justify-between items-center ${isScrolled ? "glass-nav py-3 border border-white/10 shadow-2xl" : "py-5 bg-[#06090a]/40 backdrop-blur-md border border-white/5"
+            }`}
+        >
           <Link href="#home" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-[#22c55e]/10 flex items-center justify-center border border-[#22c55e]/20 group-hover:scale-110 transition-transform">
-              <Image src="/logo.png" alt="SomaThrive Logo" width={24} height={24} className="invert" />
+            <div className="w-10 h-10 flex items-center justify-center group-hover:scale-110 transition-transform">
+              <Image src="/logo.png" alt="SomaThrive Logo" width={32} height={32} className="invert object-contain" />
             </div>
             <span className="text-xl font-bold tracking-tight text-white">Soma<span className="text-[#22c55e]">Thrive</span></span>
           </Link>
@@ -59,36 +63,36 @@ export default function Home() {
               <div className={`h-0.5 w-full bg-current transition-all ${isMenuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
             </div>
           </button>
-        </div>
-      </nav>
+        </nav>
+      </header>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-20">
+      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
         <Image
           src="/hero-student.jpg"
           alt="SomaThrive Student Session"
           fill
-          className="object-cover"
+          className="object-cover object-right md:object-center"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#06090a] via-[#06090a]/40 to-[#06090a]/20 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#06090a] via-[#06090a]/80 to-transparent z-10" />
 
-        <div className="container mx-auto px-6 relative z-20 text-center">
+        <div className="container mx-auto px-6 relative z-20">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-4xl mx-auto"
+            className="max-w-3xl"
           >
-            <h1 className="text-5xl md:text-8xl font-bold leading-[1.1] mb-8 text-gradient">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-8 text-white">
               Helping Somali Students <br />
               <span className="text-[#22c55e]">Learn, Grow & Access</span> <br />
               Global Opportunities
             </h1>
-            <p className="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base md:text-lg text-gray-300 mb-10 max-w-xl leading-relaxed">
               SomaThrive is a student-focused education and opportunity platform supporting Somali youth to navigate scholarships, mentorship, and global learning pathways with clarity and confidence.
             </p>
-            <div className="flex flex-col sm:flex-row gap-5 justify-center">
+            <div className="flex flex-col sm:flex-row gap-5">
               <Link href="#programs" className="px-10 py-4 bg-[#22c55e] text-black font-bold rounded-2xl hover:bg-[#16a34a] transition-all hover:translate-y-[-2px] shadow-lg shadow-[#22c55e]/20 text-center">
                 Explore Scholarships
               </Link>
