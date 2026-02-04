@@ -302,24 +302,24 @@ export default function Home() {
         </section>
 
         {/* CALL TO ACTION (Flipping Cards) */}
-        <section id="support-cards" className="py-40">
+        <section id="support-cards" className="py-64">
           <div className="max-w-[1920px] mx-auto px-6 md:px-[191px]">
-            <div className="text-center mb-24">
+            <div className="text-center mb-40">
               <h2 className="text-3xl md:text-5xl font-black tracking-tighter italic uppercase">Support Our Mission</h2>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-10">
               {ctaCards.map((card, idx) => (
-                <div key={idx} className="group h-[500px] [perspective:1500px]">
+                <div key={idx} className="group h-[550px] [perspective:1500px]">
                   <div className="relative h-full w-full rounded-[4rem] transition-all duration-1000 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                     {/* Front */}
                     <div className="absolute inset-0 flex flex-col items-center justify-center p-12 text-center bg-white/[0.02] border border-white/10 rounded-[4rem] [backface-visibility:hidden]">
-                      <h3 className="text-3xl font-black uppercase leading-tight italic">{card.title}</h3>
+                      <h3 className="text-2xl font-black uppercase leading-tight italic">{card.title}</h3>
                       <div className="mt-12 w-12 h-12 rounded-full border border-[#22c55e]/30 flex items-center justify-center text-[#22c55e] group-hover:bg-[#22c55e] group-hover:text-black transition-all">→</div>
                     </div>
                     {/* Back */}
                     <div className="absolute inset-0 h-full w-full rounded-[4rem] bg-[#22c55e] p-12 text-black [transform:rotateY(180deg)] [backface-visibility:hidden] flex flex-col justify-between items-start">
-                      <p className="text-xl font-black leading-tight italic">{card.desc}</p>
+                      <p className="text-lg font-black leading-tight italic">{card.desc}</p>
                       <Link href={card.link} target="_blank" className="w-full py-6 bg-black text-white font-black text-xs rounded-2xl text-center uppercase tracking-widest hover:scale-105 transition-transform">
                         Apply Now
                       </Link>
