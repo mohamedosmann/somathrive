@@ -7,392 +7,228 @@ import { useState, useEffect } from "react";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
     { name: "Programs", href: "#programs" },
-    { name: "Support", href: "#cta" },
+    { name: "Support", href: "#support" },
     { name: "Contact", href: "#contact" },
   ];
 
-  const ctaItems = [
-    {
-      title: "Volunteer with us",
-      desc: "Support Somali students by contributing your time and expertise. You can work with us in essay reviewing, interview preparation and student mentorship.",
-      link: "https://docs.google.com/forms/d/e/1FAIpQLScLrSQ6vBLkGbd6vA3OYws0IdAHgHMZ9tkpKcO4-N_aIuT6Xg/viewform?usp=dialog"
-    },
-    {
-      title: "Partner With Us",
-      desc: "Collaborate with us to expand access to information, training and opportunities for Somali students. ",
-      link: "https://docs.google.com/forms/d/e/1FAIpQLScLrSQ6vBLkGbd6vA3OYws0IdAHgHMZ9tkpKcO4-N_aIuT6Xg/viewform?usp=dialog"
-    },
-    {
-      title: "Host a Workshop",
-      desc: "Invite SomaThrive to your school or community center to run a scholarship preparation or academic skills session for students.",
-      link: "https://docs.google.com/forms/d/e/1FAIpQLScLrSQ6vBLkGbd6vA3OYws0IdAHgHMZ9tkpKcO4-N_aIuT6Xg/viewform?usp=dialog"
-    },
-    {
-      title: "Refer a Student",
-      desc: "Know a Somali student who could benefit from academic support or scholarship guidance? Refer them to SomaThrive.",
-      link: "https://docs.google.com/forms/d/e/1FAIpQLScLrSQ6vBLkGbd6vA3OYws0IdAHgHMZ9tkpKcO4-N_aIuT6Xg/viewform?usp=dialog"
-    },
-    {
-      title: "Share Your Story",
-      desc: "Past scholarship recipients and university students are invited to share their journeys to help inform and inspire other Somali students.",
-      link: "https://docs.google.com/forms/d/e/1FAIpQLScLrSQ6vBLkGbd6vA3OYws0IdAHgHMZ9tkpKcO4-N_aIuT6Xg/viewform?usp=dialog"
-    }
-  ];
-
   return (
-    <div className="min-h-screen selection:bg-[#22c55e]/30 font-inter text-gray-200 bg-[#06090a]">
+    <div className="min-h-screen bg-[#06090a] text-white font-inter selection:bg-[#22c55e]/20">
       {/* Navigation */}
-      <header className="fixed top-6 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-6xl z-50">
-        <nav
-          id="home"
-          className={`transition-all duration-500 rounded-full px-8 flex justify-between items-center ${isScrolled ? "glass-nav py-2 border border-white/10 shadow-2xl" : "py-3 bg-[#06090a]/40 backdrop-blur-md border border-white/5"
-            }`}
-        >
-          <Link href="#home" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 flex items-center justify-center group-hover:scale-110 transition-transform">
-              <Image src="/logo.png" alt="SomaThrive Logo" width={32} height={32} className="invert object-contain" />
-            </div>
-            <span className="text-xl font-roboto font-black tracking-tight text-white uppercase italic">Soma<span className="text-[#22c55e]">Thrive</span></span>
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-[#06090a]/80 backdrop-blur-md border-b border-white/5 py-4" : "py-8"}`}>
+        <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
+          <Link href="/" className="flex items-center gap-2 group">
+            <span className="text-xl font-bold tracking-tight">Soma<span className="text-[#22c55e]">Thrive</span></span>
           </Link>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-[11px] font-black uppercase tracking-[0.2em] text-gray-400 hover:text-white transition-colors"
+                className="text-sm font-medium text-gray-400 hover:text-white transition-colors"
               >
                 {link.name}
               </Link>
             ))}
             <Link
-              href="#community"
-              className="px-6 py-2.5 bg-[#22c55e] text-black text-[10px] font-black uppercase tracking-widest rounded-full hover:bg-white transition-all transform hover:scale-105"
+              href="#support"
+              className="px-5 py-2 bg-[#22c55e] text-black text-sm font-bold rounded-lg hover:bg-white transition-colors"
             >
               Get Started
             </Link>
           </div>
-
-          <button className="md:hidden text-gray-400 hover:text-white p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            <div className="space-y-1.5 w-6">
-              <div className={`h-0.5 w-full bg-current transition-all ${isMenuOpen ? "rotate-45 translate-y-2" : ""}`} />
-              <div className={`h-0.5 w-full bg-current transition-all ${isMenuOpen ? "opacity-0" : ""}`} />
-              <div className={`h-0.5 w-full bg-current transition-all ${isMenuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
-            </div>
-          </button>
-        </nav>
-      </header>
+        </div>
+      </nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-        <Image
-          src="/classroom-bg.jpg"
-          alt="SomaThrive Classroom"
-          fill
-          className="object-cover object-center"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#06090a] via-[#06090a]/90 to-transparent z-10" />
-
-        <div className="container mx-auto px-6 relative z-20">
+      <section className="relative min-h-[90vh] flex items-center pt-20">
+        <div className="container mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-4xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="max-w-2xl"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-inter font-black leading-[1.1] mb-8 text-white tracking-tighter uppercase italic">
-              Helping Somali <br /> Students <br />
+            <h1 className="text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight mb-8">
+              Helping Somali students <br />
               <span className="text-[#22c55e]">Learn, Grow & Access</span> <br />
-              Global Opportunities
+              global opportunities.
             </h1>
-            <p className="text-base md:text-lg text-gray-300 mb-10 max-w-2xl leading-relaxed font-medium">
-              SomaThrive is a student-focused education and opportunity platform supporting Somali youth to navigate scholarships, mentorship, and global learning pathways with clarity and confidence.
+            <p className="text-lg md:text-xl text-gray-400 mb-12 leading-relaxed max-w-xl">
+              A student-led platform providing clear pathways to international scholarships and academic mentorship.
             </p>
-            <div className="flex flex-col sm:flex-row gap-5">
-              <Link href="#programs" className="px-10 py-5 bg-[#22c55e] text-black font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-white transition-all hover:translate-y-[-2px] shadow-lg shadow-[#22c55e]/20 text-center">
-                Explore Scholarships
+            <div className="flex flex-wrap gap-4">
+              <Link href="#programs" className="px-8 py-4 bg-[#22c55e] text-black font-bold rounded-xl hover:bg-white transition-all transform hover:-translate-y-1">
+                Explore Programs
               </Link>
-              <Link href="#community" className="px-10 py-5 bg-white/5 backdrop-blur-md border border-white/10 text-white font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-white/10 transition-all text-center">
-                Join Mentorship
+              <Link href="#about" className="px-8 py-4 border border-white/10 rounded-xl font-bold hover:bg-white/5 transition-all">
+                Learn More
               </Link>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2 }}
+            className="relative hidden lg:block"
+          >
+            <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden border border-white/10">
+              <Image
+                src="/classroom-bg.jpg"
+                alt="SomaThrive Session"
+                fill
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#06090a] via-transparent to-transparent" />
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* REVERTED: Focus Areas - Restore previous detail */}
-      <section className="py-32 relative overflow-hidden bg-[#06090a]">
-        <div className="container mx-auto px-6 text-center mb-24 relative z-10">
-          <span className="text-[#22c55e] font-roboto font-black tracking-[0.4em] uppercase text-xs mb-4 block">What SomaThrive Does</span>
-          <h2 className="text-4xl md:text-5xl font-roboto font-black mb-6 tracking-tight text-white uppercase italic">Our Focus Areas</h2>
-        </div>
-
-        <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
-          {[
-            {
-              title: "Scholarship Guidance",
-              desc: "Clear, step-by-step guidance on international scholarships and study opportunities, delivered through online sessions and in-person student meetups."
-            },
-            {
-              title: "Academic Mentorship",
-              desc: "Mentorship sessions that support students with academic planning, applications, and decision-making throughout their education journey."
-            },
-            {
-              title: "Global Exposure",
-              desc: "Information sharing, webinars, and peer learning that expose students to global academic and professional pathways."
-            }
-          ].map((item, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="p-12 rounded-[2.5rem] glass-card group text-left border-l-4 border-l-transparent hover:border-l-[#22c55e] transition-all duration-500"
-            >
-              <h3 className="text-2xl font-roboto font-black mb-6 text-white group-hover:text-[#22c55e] transition-colors uppercase italic">{item.title}</h3>
-              <p className="text-gray-500 leading-relaxed font-medium mb-4">{item.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* REVERTED: Why Trust Us (Section restored) */}
-      <section className="py-32 border-y border-white/5 bg-[#06090a]">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-20 items-center">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-roboto font-black mb-10 text-white uppercase italic">Why Students Trust <br /><span className="text-[#22c55e]">SomaThrive</span></h2>
-              <div className="grid grid-cols-1 gap-6">
-                {[
-                  "Simple, clear guidance",
-                  "Student-focused and practical",
-                  "Built on real experience and global exposure",
-                  "Active community engagement"
-                ].map((text, idx) => (
-                  <div key={idx} className="flex items-center gap-4 group">
-                    <div className="w-6 h-6 rounded-full bg-[#22c55e] flex items-center justify-center text-black text-xs font-bold transition-transform group-hover:scale-125">✓</div>
-                    <span className="text-lg font-medium text-gray-300">{text}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="relative">
-              <div className="absolute -inset-10 bg-[#22c55e]/10 blur-[100px] rounded-full" />
-              <div className="relative p-1 rounded-[3rem] bg-gradient-to-br from-[#22c55e]/20 to-transparent">
-                <div className="bg-[#0c1114] rounded-[2.9rem] p-12 text-center">
-                  <h4 className="text-2xl font-roboto font-black mb-4 text-white uppercase italic">Join Our Community</h4>
-                  <p className="text-gray-500 mb-10 leading-relaxed">Stay updated on scholarships, mentorship opportunities, and upcoming events.</p>
-                  <div className="flex flex-col gap-4">
-                    <button className="w-full py-4 bg-[#22c55e] text-black font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-white transition-all shadow-lg shadow-[#22c55e]/20">
-                      Join WhatsApp Community
-                    </button>
-                    <button className="w-full py-4 bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-white/10 transition-all">
-                      Join Email List
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+      {/* Focus Areas */}
+      <section id="programs" className="py-32">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="mb-20">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Focus</h2>
+            <div className="h-1 w-12 bg-[#22c55e] rounded-full" />
           </div>
-        </div>
-      </section>
 
-      {/* REVERTED: About Section (Restored detail) */}
-      <section id="about" className="py-32 bg-[#06090a]">
-        <div className="container mx-auto px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-24 mb-32">
-              <div>
-                <h2 className="text-4xl md:text-5xl font-roboto font-black mb-8 text-white uppercase italic">Who We Are</h2>
-                <p className="text-xl text-gray-400 leading-relaxed font-medium">
-                  SomaThrive is a youth-led education and opportunity platform dedicated to supporting Somali students to access quality learning and global opportunities. We work at the intersection of education, mentorship, and technology to bridge the gap between talent and opportunity for Somali students.
-                </p>
+          <div className="grid md:grid-cols-3 gap-12">
+            {[
+              {
+                title: "Scholarship Guidance",
+                desc: "Step-by-step support for international applications and interview preparation."
+              },
+              {
+                title: "Academic Mentorship",
+                desc: "One-on-one sessions with experienced mentors to shape your future career."
+              },
+              {
+                title: "Global Community",
+                desc: "Connect with a network of Somali students and professionals worldwide."
+              }
+            ].map((item, idx) => (
+              <div key={idx} className="group">
+                <h3 className="text-xl font-bold mb-4 text-[#22c55e]">{item.title}</h3>
+                <p className="text-gray-400 leading-relaxed text-lg">{item.desc}</p>
               </div>
-              <div className="space-y-12">
-                <div className="p-8 rounded-[2rem] bg-white/[0.02] border border-white/5">
-                  <h3 className="text-xs font-black uppercase tracking-[0.4em] text-[#22c55e] mb-4">Our Mission</h3>
-                  <p className="text-lg text-gray-300 font-medium">To increase access to global learning opportunities and academic support for Somali students.</p>
-                </div>
-                <div className="p-8 rounded-[2rem] bg-white/[0.02] border border-white/5">
-                  <h3 className="text-xs font-black uppercase tracking-[0.4em] text-[#22c55e] mb-4">Our Vision</h3>
-                  <p className="text-lg text-gray-300 font-medium">A confident generation of Somali students competing globally with knowledge, and transforming the country.</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="text-center mb-16">
-              <h2 className="text-3xl font-roboto font-black text-white mb-2 uppercase tracking-widest italic">Our Team</h2>
-              <div className="h-1 w-20 bg-[#22c55e] mx-auto rounded-full" />
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-              {[
-                { name: "Deqa Daud", role: "Co-founder" },
-                { name: "Farhia Dini", role: "Co-founder" },
-                { name: "Amiro Osman", role: "Program Coordinator" }
-              ].map((member, idx) => (
-                <div key={idx} className="text-center group">
-                  <div className="relative w-full aspect-square rounded-[3rem] overflow-hidden bg-[#0c1114] border border-white/5 mb-8 p-1">
-                    <div className="absolute inset-0 bg-[#22c55e] opacity-0 group-hover:opacity-10 transition-opacity" />
-                    <img
-                      src={`https://ui-avatars.com/api/?name=${member.name.replace(' ', '+')}&background=06090a&color=22c55e&size=400&font-size=0.3&bold=true`}
-                      className="w-full h-full object-cover rounded-[2.8rem] grayscale hover:grayscale-0 transition-all duration-700 opacity-60 group-hover:opacity-100"
-                      alt={member.name}
-                    />
-                  </div>
-                  <h4 className="text-2xl font-roboto font-black text-white mb-1 uppercase italic tracking-tight">{member.name}</h4>
-                  <p className="text-[#22c55e] font-black tracking-[0.2em] text-[10px] uppercase">{member.role}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* REVERTED: Programs Section (Section Restored) */}
-      <section id="programs" className="py-32 bg-[#080b0c] relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#22c55e]/5 blur-[120px] rounded-full pointer-events-none" />
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="flex flex-col md:flex-row gap-20 items-center max-w-6xl mx-auto">
-            <div className="md:w-1/2 text-left">
-              <h2 className="text-5xl md:text-7xl font-roboto font-black text-white mb-8 tracking-tighter uppercase italic">Webinars</h2>
-              <p className="text-2xl text-gray-400 font-medium leading-relaxed mb-10">
-                Live, interactive sessions that provide practical guidance on studying abroad, scholarships, and navigating global opportunities.
-              </p>
-              <button className="px-10 py-5 bg-white text-black font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-[#22c55e] transition-all">
-                Join Next Session
-              </button>
-            </div>
-            <div className="md:w-1/2 relative group">
-              <div className="relative aspect-square md:aspect-[4/5] rounded-[3.5rem] overflow-hidden border border-white/5 shadow-2xl">
-                <Image src="/classroom-bg.jpg" alt="Webinar" fill className="object-cover scale-110 group-hover:scale-100 transition-transform duration-1000 opacity-60 group-hover:opacity-100" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                <div className="absolute bottom-10 left-10 p-2 bg-[#22c55e] text-black font-black text-[10px] rounded uppercase tracking-widest">Live Interactive</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CALL TO ACTION - Flipping Cards - KEEPS THESE */}
-      <section id="cta" className="py-32 bg-[#080b0c] overflow-hidden">
-        <div className="container mx-auto px-6 mb-20 text-center">
-          <span className="text-[#22c55e] font-roboto font-black tracking-[0.4em] uppercase text-xs mb-4 block">Take the next step</span>
-          <h2 className="text-4xl md:text-5xl font-roboto font-black text-white uppercase italic">Collaborate With Us</h2>
-        </div>
-
-        <div className="container mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-          {ctaItems.map((item, idx) => (
-            <div key={idx} className="group h-[400px] [perspective:1000px]">
-              <div className="relative h-full w-full rounded-[3rem] transition-all duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer">
-                {/* Front Side */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center bg-white/[0.03] border border-white/5 rounded-[3rem] [backface-visibility:hidden]">
-                  <div className="w-16 h-16 rounded-full bg-[#22c55e]/10 flex items-center justify-center mb-6 text-2xl">✨</div>
-                  <h3 className="text-xl font-roboto font-black text-white uppercase italic leading-tight">{item.title}</h3>
-                  <div className="mt-8 text-[10px] font-black uppercase tracking-widest text-[#22c55e] group-hover:opacity-0 transition-opacity">Learn More</div>
-                </div>
-                {/* Back Side */}
-                <div className="absolute inset-0 h-full w-full rounded-[3rem] bg-[#22c55e] p-8 text-black [transform:rotateY(180deg)] [backface-visibility:hidden] flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-xl font-roboto font-black uppercase italic mb-4">{item.title}</h3>
-                    <p className="text-sm font-bold leading-relaxed">{item.desc}</p>
-                  </div>
-                  <Link href={item.link} target="_blank" className="w-full py-4 bg-black text-white font-black uppercase tracking-widest text-[10px] rounded-2xl text-center hover:bg-white hover:text-black transition-colors">
-                    Apply Now
-                  </Link>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* REVERTED: Contact Section (Restore detail) */}
-      <section id="contact" className="py-32 bg-[#06090a]">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-24 max-w-6xl mx-auto">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-roboto font-black mb-8 text-white uppercase italic leading-none">Contact Us</h2>
-              <p className="text-gray-400 mb-12 font-medium">Reach out to us for any inquiries or collaborations. Our team is ready to support you.</p>
-
-              <div className="space-y-10">
-                <div className="flex gap-6 group">
-                  <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-xl group-hover:bg-[#22c55e] group-hover:text-black transition-all">✉️</div>
-                  <div>
-                    <h4 className="text-[10px] font-black uppercase tracking-widest text-[#22c55e] mb-1">Email</h4>
-                    <p className="text-lg font-roboto font-bold text-white">contact@somathrive.com</p>
-                  </div>
-                </div>
-                <div className="flex gap-6 group">
-                  <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-xl group-hover:bg-[#22c55e] group-hover:text-black transition-all">💬</div>
-                  <div>
-                    <h4 className="text-[10px] font-black uppercase tracking-widest text-[#22c55e] mb-1">WhatsApp</h4>
-                    <p className="text-lg font-roboto font-bold text-white">+252 61 XXX XXXX</p>
-                  </div>
-                </div>
-                <div className="flex gap-6 group">
-                  <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-xl group-hover:bg-[#22c55e] group-hover:text-black transition-all">📱</div>
-                  <div>
-                    <h4 className="text-[10px] font-black uppercase tracking-widest text-[#22c55e] mb-1">Social Media</h4>
-                    <p className="text-lg font-roboto font-bold text-white">@SomaThrive</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="p-12 rounded-[3.5rem] bg-white/[0.02] border border-white/5">
-              <form className="space-y-6">
-                <div>
-                  <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 mb-2 block">Your Name</label>
-                  <input type="text" className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 px-6 focus:outline-none focus:border-[#22c55e] transition-colors" placeholder="Your Name" />
-                </div>
-                <div>
-                  <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 mb-2 block">Email Address</label>
-                  <input type="email" className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 px-6 focus:outline-none focus:border-[#22c55e] transition-colors" placeholder="email@example.com" />
-                </div>
-                <div>
-                  <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 mb-2 block">Message</label>
-                  <textarea rows={4} className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 px-6 focus:outline-none focus:border-[#22c55e] transition-colors resize-none" placeholder="How can we help you?" />
-                </div>
-                <button className="w-full py-5 bg-[#22c55e] text-black font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-white transition-all transform hover:translate-y-[-2px]">
-                  Send Message
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer - Restored Detail */}
-      <footer className="py-20 border-t border-white/5 bg-[#06090a]">
-        <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10">
-          <div className="flex items-center gap-3">
-            <Image src="/logo.png" alt="SomaThrive Logo" width={32} height={32} className="invert opacity-20" />
-            <span className="text-sm font-roboto font-black text-gray-600 tracking-tighter uppercase italic">SomaThrive</span>
-          </div>
-          <p className="text-gray-800 text-[10px] font-black uppercase tracking-[0.5em]">
-            &copy; {new Date().getFullYear()} SomaThrive. Established for Impact.
-          </p>
-          <div className="flex gap-10">
-            {["Twitter", "LinkedIn", "Instagram"].map((social) => (
-              <Link key={social} href="#" className="text-[10px] font-black uppercase tracking-[0.3em] text-gray-800 hover:text-[#22c55e] transition-colors">
-                {social}
-              </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-32 bg-[#0a0d0e]">
+        <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-24 items-center">
+          <div>
+            <h2 className="text-3xl md:text-5xl font-bold mb-10 leading-tight">
+              Driven by student needs, <br />
+              led by student <span className="text-[#22c55e]">experience</span>.
+            </h2>
+            <p className="text-lg text-gray-400 leading-relaxed mb-8">
+              SomaThrive bridge the gap between talent and opportunity. We believe every Somali student deserves a fair chance at world-class education.
+            </p>
+            <div className="grid grid-cols-2 gap-8 pt-8 border-t border-white/5">
+              <div>
+                <h4 className="text-[#22c55e] font-bold text-2xl mb-1">200+</h4>
+                <p className="text-sm text-gray-500 uppercase tracking-widest font-bold">Students Helped</p>
+              </div>
+              <div>
+                <h4 className="text-[#22c55e] font-bold text-2xl mb-1">15+</h4>
+                <p className="text-sm text-gray-500 uppercase tracking-widest font-bold">Active Mentors</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <div className="space-y-4">
+              <div className="aspect-[3/4] rounded-3xl overflow-hidden relative">
+                <Image src="/speaker-1.jpg" alt="Team" fill className="object-cover" />
+              </div>
+              <div className="aspect-square rounded-3xl overflow-hidden relative bg-[#22c55e]/10 border border-[#22c55e]/20 flex items-center justify-center p-6 text-center">
+                <p className="text-sm font-bold opacity-60 italic">"Empowering the next generation."</p>
+              </div>
+            </div>
+            <div className="space-y-4 pt-12">
+              <div className="aspect-square rounded-3xl overflow-hidden relative bg-white/5" />
+              <div className="aspect-[3/4] rounded-3xl overflow-hidden relative">
+                <Image src="/speaker-2.jpg" alt="Team" fill className="object-cover" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Support / CTA */}
+      <section id="support" className="py-32">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="bg-[#22c55e] rounded-[3rem] p-12 md:p-24 text-black text-center relative overflow-hidden group">
+            <div className="relative z-10 max-w-3xl mx-auto">
+              <h2 className="text-4xl md:text-6xl font-bold mb-8 tracking-tight">Ready to start <br /> your journey?</h2>
+              <p className="text-lg md:text-xl font-medium mb-12 opacity-80">
+                Whether you're a student seeking guidance or a professional wanting to give back, we'd love to have you.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Link href="https://docs.google.com/forms/d/e/1FAIpQLScLrSQ6vBLkGbd6vA3OYws0IdAHgHMZ9tkpKcO4-N_aIuT6Xg/viewform" target="_blank" className="px-10 py-5 bg-black text-white font-bold rounded-2xl hover:scale-105 transition-transform">
+                  Apply for Support
+                </Link>
+                <Link href="#contact" className="px-10 py-5 bg-white text-black font-bold rounded-2xl hover:scale-105 transition-transform">
+                  Partner with Us
+                </Link>
+              </div>
+            </div>
+            <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-white/20 rounded-full blur-3xl pointer-events-none group-hover:bg-white/30 transition-colors" />
+          </div>
+        </div>
+      </section>
+
+      {/* Contact & Footer */}
+      <footer id="contact" className="py-32 border-t border-white/5 bg-[#06090a]">
+        <div className="container mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-24">
+          <div>
+            <h2 className="text-4xl font-bold mb-8">Get in touch</h2>
+            <p className="text-xl text-gray-400 mb-12">Have questions? We're here to help.</p>
+
+            <div className="space-y-8">
+              <div className="flex gap-6">
+                <div className="text-2xl">✉️</div>
+                <div>
+                  <h4 className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-1">Email</h4>
+                  <p className="text-lg font-medium">contact@somathrive.com</p>
+                </div>
+              </div>
+              <div className="flex gap-6">
+                <div className="text-2xl">📱</div>
+                <div>
+                  <h4 className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-1">Social</h4>
+                  <p className="text-lg font-medium">@SomaThrive</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="pt-20 lg:pt-0">
+            <div className="flex flex-col h-full justify-between">
+              <div className="text-2xl font-bold mb-12">Soma<span className="text-[#22c55e]">Thrive</span></div>
+              <div className="text-sm text-gray-500 border-t border-white/5 pt-8 flex justify-between items-center">
+                <span>&copy; {new Date().getFullYear()} SomaThrive</span>
+                <div className="flex gap-6">
+                  <Link href="#" className="hover:text-white transition-colors">Twitter</Link>
+                  <Link href="#" className="hover:text-white transition-colors">LinkedIn</Link>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </footer>
