@@ -74,33 +74,47 @@ export default function Home() {
             </div>
           </motion.div>
 
-          <div className="relative hidden lg:grid grid-cols-2 gap-6 items-start">
+          <div className="relative hidden lg:grid grid-cols-2 gap-8 items-start">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
               className="relative aspect-[3/4] rounded-[2rem] overflow-hidden border border-white/10 mt-12"
             >
-              <Image
-                src="/hero-2.jpg"
-                alt="SomaThrive Community"
-                fill
-                className="object-cover"
-              />
+              <Image src="/hero-2.jpg" alt="SomaThrive Community" fill className="object-cover" />
             </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="relative aspect-[4/3] rounded-[2rem] overflow-hidden border border-white/10"
-            >
-              <Image
-                src="/hero-1.png"
-                alt="SomaThrive Session"
-                fill
-                className="object-cover"
-              />
-            </motion.div>
+
+            <div className="space-y-8">
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="relative aspect-[4/3] rounded-[2rem] overflow-hidden border border-white/10"
+              >
+                <Image src="/hero-1.png" alt="SomaThrive Session" fill className="object-cover" />
+              </motion.div>
+
+              <div className="grid grid-cols-1 gap-6">
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.5 }}
+                  className="p-8 rounded-[2rem] bg-white/[0.03] border border-white/5"
+                >
+                  <h4 className="text-[#22c55e] text-xs font-bold uppercase tracking-widest mb-4">Our Mission</h4>
+                  <p className="text-sm text-gray-400 leading-relaxed">To increase access to global learning for Somali students through tailored guidance, mentorship, and support.</p>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.6 }}
+                  className="p-8 rounded-[2rem] bg-white/[0.03] border border-white/5"
+                >
+                  <h4 className="text-[#22c55e] text-xs font-bold uppercase tracking-widest mb-4">Our Vision</h4>
+                  <p className="text-sm text-gray-400 leading-relaxed">A confident generation of Somali students competing globally, achieving excellence and transforming their communities.</p>
+                </motion.div>
+              </div>
+            </div>
             <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-[#22c55e]/5 blur-[100px] rounded-full pointer-events-none" />
           </div>
         </div>
