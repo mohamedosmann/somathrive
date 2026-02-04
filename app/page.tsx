@@ -95,83 +95,41 @@ export default function Home() {
         </nav>
       </header>
 
-      {/* Hero Section - KEEPS THE WIDE LAYOUT */}
-      <section className="relative min-h-screen flex items-center pt-32 pb-20 bg-[#06090a] overflow-hidden">
-        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-[#22c55e]/5 blur-[120px] rounded-full pointer-events-none" />
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <Image
+          src="/classroom-bg.jpg"
+          alt="SomaThrive Classroom"
+          fill
+          className="object-cover object-center"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#06090a] via-[#06090a]/90 to-transparent z-10" />
 
-        <div className="max-w-[1920px] mx-auto px-6 md:px-[191px] relative z-20 grid lg:grid-cols-2 gap-20 xl:gap-32 items-center">
+        <div className="container mx-auto px-6 relative z-20">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-xl"
+            className="max-w-4xl"
           >
-            <span className="text-[#facc15] text-[10px] font-black uppercase tracking-[0.4em] mb-6 block">
-              Empowering Somali Youth
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-7xl xl:text-[6rem] font-roboto font-black leading-[1.05] mb-8 text-white tracking-tighter uppercase italic">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-inter font-black leading-[1.1] mb-8 text-white tracking-tighter">
               Helping Somali <br /> Students <br />
               <span className="text-[#22c55e]">Learn, Grow & Access</span> <br />
               Global Opportunities
             </h1>
-            <p className="text-base md:text-lg text-gray-400 mb-10 max-w-md leading-relaxed font-medium">
-              Supporting Somali youth to navigate global scholarships and mentorship with confidence.
+            <p className="text-base md:text-lg text-gray-300 mb-10 max-w-2xl leading-relaxed font-medium">
+              SomaThrive is a student-focused education and opportunity platform supporting Somali youth to navigate scholarships, mentorship, and global learning pathways with clarity and confidence.
             </p>
             <div className="flex flex-col sm:flex-row gap-5">
-              <Link href="#programs" className="px-10 py-4 bg-[#22c55e] text-black font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-white transition-all hover:translate-y-[-2px] shadow-lg shadow-[#22c55e]/10 text-center">
+              <Link href="#programs" className="px-10 py-5 bg-[#22c55e] text-black font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-white transition-all hover:translate-y-[-2px] shadow-lg shadow-[#22c55e]/20 text-center">
                 Explore Scholarships
               </Link>
-              <Link href="#community" className="px-10 py-4 bg-white/5 backdrop-blur-md border border-white/10 text-white font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-white/10 transition-all text-center">
+              <Link href="#community" className="px-10 py-5 bg-white/5 backdrop-blur-md border border-white/10 text-white font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-white/10 transition-all text-center">
                 Join Mentorship
               </Link>
             </div>
           </motion.div>
-
-          {/* Capsule Image Mosaic */}
-          <div className="relative h-[650px] hidden lg:grid grid-cols-2 gap-8 items-center">
-            {/* Column 1 (Merged previous Col 2) */}
-            <div className="space-y-4">
-              <motion.div
-                initial={{ opacity: 0, y: -40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 1 }}
-                className="h-[320px] rounded-full overflow-hidden bg-white/5 border border-white/10 relative group shadow-2xl"
-              >
-                <Image src="/speaker-1.jpg" alt="SomaThrive Speaker" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 1 }}
-                className="h-[220px] rounded-full overflow-hidden bg-[#22c55e]/20 border border-white/5 relative group"
-              >
-                <Image src="/classroom-bg.jpg" alt="Classroom" fill className="object-cover group-hover:scale-110 transition-transform duration-700 opacity-60" />
-                <div className="absolute inset-0 bg-[#22c55e]/10 mix-blend-overlay" />
-              </motion.div>
-            </div>
-
-            {/* Column 2 (Merged previous Col 3) */}
-            <div className="space-y-4 pt-16">
-              <motion.div
-                initial={{ opacity: 0, x: 40 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.8, duration: 1 }}
-                className="h-[240px] rounded-full overflow-hidden bg-white/5 border border-white/10 relative group"
-              >
-                <div className="absolute inset-0 flex items-center justify-center p-6 text-center">
-                  <p className="text-[10px] font-roboto font-black uppercase tracking-[0.3em] text-[#22c55e]">Empowering Dreams</p>
-                </div>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: 40 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1, duration: 1 }}
-                className="h-[300px] rounded-full overflow-hidden border border-white/10 relative group shadow-2xl"
-              >
-                <Image src="/speaker-2.jpg" alt="SomaThrive Session" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
-              </motion.div>
-            </div>
-          </div>
         </div>
       </section>
 
