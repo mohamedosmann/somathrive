@@ -74,23 +74,35 @@ export default function Home() {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2 }}
-            className="relative hidden lg:block"
-          >
-            <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden border border-white/10">
+          <div className="relative hidden lg:grid grid-cols-2 gap-6 items-start">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="relative aspect-[3/4] rounded-[2rem] overflow-hidden border border-white/10 mt-12"
+            >
               <Image
-                src="/classroom-bg.jpg"
+                src="/hero-2.jpg"
+                alt="SomaThrive Community"
+                fill
+                className="object-cover"
+              />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="relative aspect-[4/3] rounded-[2rem] overflow-hidden border border-white/10"
+            >
+              <Image
+                src="/hero-1.png"
                 alt="SomaThrive Session"
                 fill
                 className="object-cover"
-                priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#06090a] via-transparent to-transparent" />
-            </div>
-          </motion.div>
+            </motion.div>
+            <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-[#22c55e]/5 blur-[100px] rounded-full pointer-events-none" />
+          </div>
         </div>
       </section>
 
