@@ -15,165 +15,184 @@ export default function Home() {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "Programs", href: "#programs" },
     { name: "About", href: "#about" },
+    { name: "Programs", href: "#programs" },
     { name: "Community", href: "#community" },
+    { name: "Resources", href: "#resources" },
+    { name: "Contacts", href: "#contacts" },
   ];
 
   return (
-    <div className="min-h-screen selection:bg-green-100 font-sans text-slate-800 bg-soft-pattern">
-      {/* Navigation */}
-      <nav id="home" className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? "glass-nav py-3" : "py-6"}`}>
-        <div className="container mx-auto px-6 flex justify-between items-center">
-          <Link href="#home" className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center border border-green-100">
-              <Image src="/logo.png" alt="SomaThrive Logo" width={24} height={24} />
-            </div>
-            <span className="text-xl font-bold tracking-tight text-slate-900 italic">Soma<span className="text-[#1a4d2e]">Thrive</span></span>
-          </Link>
-
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="text-sm font-medium text-slate-500 hover:text-[#1a4d2e] transition-colors"
-              >
-                {link.name}
-              </Link>
-            ))}
-            <Link
-              href="#login"
-              className="px-6 py-2.5 bg-slate-900 text-white text-xs font-bold rounded-full hover:bg-black transition-all shadow-md uppercase tracking-widest"
-            >
-              Get Started
-            </Link>
-          </div>
-        </div>
-      </nav>
-
-      {/* Hero Section */}
-      <section className="relative pt-48 pb-32 px-6">
-        <div className="container mx-auto max-w-5xl">
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <span className="inline-block px-4 py-1.5 rounded-full bg-green-50 text-[#1a4d2e] text-[11px] font-bold tracking-[0.1em] uppercase mb-8 border border-green-100/50">
-              Student-Focused Growth
-            </span>
-
-            <h1 className="text-4xl md:text-6xl font-black text-slate-900 leading-[1.15] mb-8 text-balance">
-              Helping Somali Students <span className="text-[#1a4d2e]">Learn, Grow</span> <br />
-              & Access Global Opportunities
-            </h1>
-
-            <p className="text-lg text-slate-500 mb-12 max-w-2xl mx-auto leading-relaxed">
-              SomaThrive is a dedicated education and opportunity platform supporting Somali youth to navigate scholarships, mentorship, and global learning pathways with absolute confidence.
-            </p>
-
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link href="#programs" className="btn-primary">
-                Explore Scholarships
-              </Link>
-              <Link href="#community" className="btn-secondary">
-                Join Community
-              </Link>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 1 }}
-            className="mt-20 relative w-full aspect-[21/9] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white"
-          >
-            <Image
-              src="/hero-student.jpg"
-              alt="SomaThrive Student Session"
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-black/10" />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Focus Areas */}
-      <section id="programs" className="py-24 bg-white border-y border-slate-50">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-black text-slate-900 mb-4 tracking-tight">Focus Areas</h2>
-            <div className="w-12 h-1 bg-[#1a4d2e] mx-auto rounded-full" />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { title: "Scholarship Guidance", desc: "Clear, step-by-step guidance on international scholarships and study opportunities." },
-              { title: "Academic Mentorship", desc: "Mentorship sessions that support students with academic planning and applications." },
-              { title: "Global Exposure", desc: "Information sharing and peer learning that expose students to world-class pathways." }
-            ].map((item, idx) => (
-              <div key={idx} className="p-10 rounded-3xl modern-card">
-                <h3 className="text-xl font-bold mb-4 text-[#1a4d2e]">{item.title}</h3>
-                <p className="text-slate-500 leading-relaxed text-sm font-medium">{item.desc}</p>
+    <div className="min-h-screen selection:bg-green-500/30 font-sans bg-ilab-inspired overflow-x-hidden">
+      {/* Navigation - Pill Design */}
+      <header className="fixed w-full top-8 z-50 px-6">
+        <div className="container mx-auto max-w-6xl">
+          <nav className="pill-nav flex items-center justify-between px-3 h-16 shadow-2xl">
+            <Link href="/" className="flex items-center gap-3 pl-4">
+              <div className="w-8 h-8 relative">
+                <Image src="/logo.png" alt="SomaThrive Logo" fill className="object-contain invert" />
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+              <span className="text-lg font-black tracking-tighter text-white uppercase italic">Soma<span className="text-[#22c55e]">Thrive</span></span>
+            </Link>
 
-      {/* Team / About */}
-      <section id="about" className="py-24">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-20">
-              <h2 className="text-3xl font-black text-slate-900 mb-6 tracking-tight uppercase">Meet Our Team</h2>
-              <p className="text-slate-500 font-medium">Dedicated mentors and leaders supporting the Somali youth.</p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-              {[
-                { name: "Deqa Daud", role: "Co-founder" },
-                { name: "Farhia Dini", role: "Co-founder" },
-                { name: "Amiro Osman", role: "Program Coordinator" }
-              ].map((member, idx) => (
-                <div key={idx} className="text-center group">
-                  <div className="w-32 h-32 mx-auto rounded-2xl overflow-hidden bg-white shadow-lg mb-6 border border-slate-100 transition-transform group-hover:scale-105">
-                    <img
-                      src={`https://ui-avatars.com/api/?name=${member.name.replace(' ', '+')}&background=1a4d2e&color=fff&size=200&font-size=0.35&bold=true`}
-                      className="w-full h-full object-cover"
-                      alt={member.name}
-                    />
-                  </div>
-                  <h4 className="text-lg font-bold text-slate-900 mb-1">{member.name}</h4>
-                  <p className="text-[#1a4d2e] font-bold text-[10px] uppercase tracking-widest">{member.role}</p>
-                </div>
+            <div className="hidden lg:flex items-center gap-8">
+              {navLinks.map((link) => (
+                <Link key={link.name} href={link.href} className="nav-link-ilab">
+                  {link.name}
+                </Link>
               ))}
             </div>
+
+            <Link href="#apply" className="px-8 py-2.5 bg-[#22c55e] text-black text-[11px] font-black rounded-full hover:bg-white transition-all uppercase tracking-widest shadow-lg shadow-green-500/20">
+              Apply Now
+            </Link>
+          </nav>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center pt-24">
+        {/* Background Visual Element (Inspired by reference sphere/lines) */}
+        <div className="absolute top-1/4 right-[-10%] w-[600px] h-[600px] border border-green-500/10 rounded-full pointer-events-none" />
+        <div className="absolute top-1/3 right-0 w-[400px] h-[400px] border border-green-500/5 rounded-full pointer-events-none animate-pulse" />
+
+        <div className="container mx-auto px-10 xl:px-20 relative z-10 grid lg:grid-cols-2 gap-20 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <h1 className="text-6xl md:text-8xl font-black text-white leading-[0.95] mb-8 tracking-tighter uppercase italic">
+              Empowering <br />
+              <span className="text-[#22c55e]">The Next</span> <br />
+              Somali Generation
+            </h1>
+            <p className="text-xl text-slate-400 mb-10 max-w-xl font-medium leading-relaxed">
+              Helping students Learn, Grow & Access Global Opportunities through clarity and confidence.
+            </p>
+            <Link href="#apply" className="btn-ilab text-lg uppercase tracking-tight">
+              Apply Now
+            </Link>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, delay: 0.2 }}
+            className="relative h-[600px] hidden lg:block"
+          >
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#22c55e]/10 to-transparent rounded-[4rem] blur-3xl opacity-50" />
+            <div className="relative h-full w-full rounded-[4rem] overflow-hidden border border-white/5 shadow-3xl transform rotate-3 hover:rotate-0 transition-transform duration-700">
+              <Image
+                src="/hero-student.jpg"
+                alt="SomaThrive Session"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent opacity-60" />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Numbers Section (Inspired by reference "Our Numbers") */}
+      <section className="py-32 relative overflow-hidden">
+        <div className="container mx-auto px-10 xl:px-20">
+          <div className="grid lg:grid-cols-2 gap-24 items-center">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-black text-white mb-12 leading-tight uppercase italic">
+                Our Numbers In <br /> Less Than <span className="text-[#22c55e]">Five</span> Years.
+              </h2>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
+                {[
+                  { val: "2K+", label: "Students Reached", icon: "👥" },
+                  { val: "150+", label: "Mentors Active", icon: "🤝" },
+                  { val: "40+", label: "Global Scholarships", icon: "🎓" },
+                  { val: "12+", label: "Global Pathways", icon: "🌍" }
+                ].map((stat, idx) => (
+                  <div key={idx} className="flex items-center gap-6 group">
+                    <div className="text-4xl group-hover:scale-110 transition-transform grayscale hover:grayscale-0">{stat.icon}</div>
+                    <div>
+                      <div className="text-3xl font-black text-[#22c55e] mb-1 tracking-tighter">{stat.val}</div>
+                      <div className="text-xs font-bold text-slate-500 uppercase tracking-widest leading-none">{stat.label}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="absolute inset-0 bg-[#22c55e]/5 rounded-full blur-[100px]" />
+              <div className="relative aspect-square flex items-center justify-center">
+                <div className="w-full h-full relative animate-slow-spin opacity-20">
+                  <div className="absolute inset-0 border-[2px] border-dashed border-[#22c55e] rounded-full" />
+                </div>
+                <div className="absolute w-[80%] h-[80%] border border-[#22c55e]/20 rounded-full animate-reverse-spin opacity-40" />
+                <div className="absolute text-8xl">🌱</div>
+              </div>
+            </div>
           </div>
+        </div>
+      </section>
+
+      {/* Focus Areas Section */}
+      <section id="programs" className="py-32 bg-white/5 border-y border-white/5">
+        <div className="container mx-auto px-10 xl:px-20 text-center mb-24">
+          <h2 className="text-4xl font-black text-white mb-6 uppercase tracking-tight italic">Our Focus Areas</h2>
+          <div className="w-20 h-1 bg-[#22c55e] mx-auto rounded-full" />
+        </div>
+
+        <div className="container mx-auto px-10 xl:px-20 grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[
+            { title: "Scholarship Guidance", desc: "Step-by-step guidance on international scholarships and study opportunities." },
+            { title: "Academic Mentorship", desc: "Supporting students with academic planning and global applications." },
+            { title: "Global Exposure", desc: "Information sharing that exposes students to world-class pathways." }
+          ].map((item, idx) => (
+            <div key={idx} className="p-12 rounded-[3.5rem] glass-stat group transition-all duration-500 hover:translate-y-[-10px]">
+              <h3 className="text-2xl font-black mb-6 text-white group-hover:text-[#22c55e] transition-colors italic uppercase">{item.title}</h3>
+              <p className="text-slate-500 leading-relaxed font-medium mb-4">{item.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-12 border-t border-slate-100 bg-white">
-        <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-          <span className="text-lg font-bold text-slate-900 italic">Soma<span className="text-[#1a4d2e]">Thrive</span></span>
-          <p className="text-slate-400 text-xs font-semibold uppercase tracking-widest">
-            &copy; {new Date().getFullYear()} SomaThrive
+      <footer id="contacts" className="py-20 border-t border-white/5">
+        <div className="container mx-auto px-10 flex flex-col md:flex-row justify-between items-center gap-10">
+          <div className="flex items-center gap-4">
+            <Image src="/logo.png" alt="SomaThrive Logo" width={32} height={32} className="invert opacity-30" />
+            <span className="text-lg font-black text-slate-500 tracking-tighter uppercase italic">SomaThrive</span>
+          </div>
+          <p className="text-slate-600 text-[10px] font-black uppercase tracking-[0.4em]">
+            &copy; {new Date().getFullYear()} SomaThrive. Established for Impact.
           </p>
-          <div className="flex gap-8">
+          <div className="flex gap-10">
             {["Twitter", "LinkedIn", "Instagram"].map((social) => (
-              <Link key={social} href="#" className="text-[10px] font-bold uppercase tracking-widest text-slate-400 hover:text-[#1a4d2e] transition-colors">
+              <Link key={social} href="#" className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-600 hover:text-[#22c55e] transition-colors">
                 {social}
               </Link>
             ))}
           </div>
         </div>
       </footer>
+
+      <style jsx global>{`
+        @keyframes slow-spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        @keyframes reverse-spin {
+          from { transform: rotate(360deg); }
+          to { transform: rotate(0deg); }
+        }
+        .animate-slow-spin {
+          animation: slow-spin 20s linear infinite;
+        }
+        .animate-reverse-spin {
+          animation: reverse-spin 15s linear infinite;
+        }
+      `}</style>
     </div>
   );
 }

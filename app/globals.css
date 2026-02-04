@@ -1,65 +1,61 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand: #1a4d2e;
-  --color-brand-light: #22c55e;
-  --color-brand-soft: rgba(34, 197, 94, 0.08);
-  --color-bg-main: #ffffff;
-  --color-text-main: #1e293b;
-  --color-text-muted: #64748b;
-  --color-border-light: #f1f5f9;
+  --color-brand: #22c55e;
+  --color-brand-deep: #0a2d1a;
+  --color-bg-dark: #020617;
+  --color-surface-dark: #0f172a;
+  --border-brand: rgba(34, 197, 94, 0.2);
 }
 
 :root {
-  --brand: #1a4d2e;
-  --brand-light: #22c55e;
-  --bg-main: #ffffff;
-  --text-main: #1e293b;
-  --border-light: #f1f5f9;
+  --brand: #22c55e;
+  --brand-deep: #0a2d1a;
+  --bg-dark: #020617;
 }
 
 body {
-  color: var(--text-main);
-  background: var(--bg-main);
+  color: #f8fafc;
+  background: var(--bg-dark);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Sophisticated Soft Background */
-.bg-soft-pattern {
-  background-color: #ffffff;
-  background-image:
-    radial-gradient(at 0% 0%, rgba(34, 197, 94, 0.03) 0px, transparent 50%),
-    radial-gradient(at 100% 0%, rgba(26, 77, 46, 0.02) 0px, transparent 50%);
+/* Premium Dark Gradient Background */
+.bg-ilab-inspired {
+  background: radial-gradient(circle at 70% 20%, rgba(34, 197, 94, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 10% 80%, rgba(10, 45, 26, 0.3) 0%, transparent 50%),
+    #020617;
 }
 
-.glass-nav {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border-light);
+.pill-nav {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
 }
 
-.modern-card {
-  background: #ffffff;
-  border: 1px solid #f1f5f9;
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.04);
+.text-glow {
+  text-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+}
+
+.glass-stat {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease;
 }
 
-.modern-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px -15px rgba(26, 77, 46, 0.08);
-  border-color: rgba(34, 197, 94, 0.15);
+.glass-stat:hover {
+  background: rgba(34, 197, 94, 0.05);
+  border-color: rgba(34, 197, 94, 0.2);
 }
 
-.text-balance {
-  text-wrap: balance;
+.btn-ilab {
+  @apply px-8 py-3 bg-[#22c55e] text-black text-sm font-bold rounded-full hover:bg-[#16a34a] transition-all shadow-lg shadow-green-500/20 active:scale-95;
 }
 
-.btn-primary {
-  @apply px-8 py-3 bg-[#1a4d2e] text-white text-sm font-semibold rounded-xl hover:bg-[#123620] transition-all shadow-lg shadow-green-900/10;
-}
-
-.btn-secondary {
-  @apply px-8 py-3 bg-white text-slate-600 text-sm font-semibold rounded-xl border border-slate-200 hover:border-slate-300 hover:text-slate-900 transition-all;
+.nav-link-ilab {
+  @apply text-xs font-medium text-slate-400 hover:text-white transition-colors uppercase tracking-wider;
 }
