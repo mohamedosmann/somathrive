@@ -15,7 +15,7 @@
 }
 
 body {
-  color: #f8fafc;
+  color: #ffffff;
   background: var(--bg-dark);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -23,9 +23,9 @@ body {
 
 /* Premium Dark Gradient Background */
 .bg-ilab-inspired {
-  background: radial-gradient(circle at 70% 20%, rgba(34, 197, 94, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 10% 80%, rgba(10, 45, 26, 0.3) 0%, transparent 50%),
-    #020617;
+  background: radial-gradient(circle at 70% 20%, rgba(34, 197, 94, 0.12) 0%, transparent 60%),
+    radial-gradient(circle at 10% 80%, rgba(10, 45, 26, 0.25) 0%, transparent 60%),
+    #010409;
 }
 
 .pill-nav {
