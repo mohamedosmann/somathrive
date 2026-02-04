@@ -302,26 +302,30 @@ export default function Home() {
         </section>
 
         {/* CALL TO ACTION (Flipping Cards) */}
-        <section id="support-cards" className="py-64">
+        <section id="support-cards" className="py-64 bg-[#06090a]">
           <div className="max-w-[1920px] mx-auto px-6 md:px-[191px]">
-            <div className="text-center mb-40">
+            <div className="max-w-3xl mb-32">
+              <span className="text-[#22c55e] text-[10px] font-black uppercase tracking-[0.5em] mb-4 block">Get Involved</span>
               <h2 className="text-3xl md:text-5xl font-black tracking-tighter italic uppercase">Support Our Mission</h2>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-10">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
               {ctaCards.map((card, idx) => (
-                <div key={idx} className="group h-[550px] [perspective:1500px]">
-                  <div className="relative h-full w-full rounded-[4rem] transition-all duration-1000 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                <div key={idx} className="group h-[450px] [perspective:1500px]">
+                  <div className="relative h-full w-full rounded-[2.5rem] transition-all duration-1000 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer">
                     {/* Front */}
-                    <div className="absolute inset-0 flex flex-col items-center justify-center p-12 text-center bg-white/[0.02] border border-white/10 rounded-[4rem] [backface-visibility:hidden]">
-                      <h3 className="text-2xl font-black uppercase leading-tight italic">{card.title}</h3>
-                      <div className="mt-12 w-12 h-12 rounded-full border border-[#22c55e]/30 flex items-center justify-center text-[#22c55e] group-hover:bg-[#22c55e] group-hover:text-black transition-all">→</div>
+                    <div className="absolute inset-0 flex flex-col justify-between p-10 bg-white/[0.02] border border-white/5 rounded-[2.5rem] [backface-visibility:hidden]">
+                      <div className="text-[#22c55e] text-sm font-black tracking-widest uppercase opacity-40">0{idx + 1}</div>
+                      <h3 className="text-2xl font-black uppercase leading-none tracking-tighter italic">{card.title}</h3>
+                      <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white group-hover:bg-[#22c55e] group-hover:text-black group-hover:border-[#22c55e] transition-all">
+                        <span className="text-xl font-light">→</span>
+                      </div>
                     </div>
                     {/* Back */}
-                    <div className="absolute inset-0 h-full w-full rounded-[4rem] bg-[#22c55e] p-12 text-black [transform:rotateY(180deg)] [backface-visibility:hidden] flex flex-col justify-between items-start">
-                      <p className="text-lg font-black leading-tight italic">{card.desc}</p>
-                      <Link href={card.link} target="_blank" className="w-full py-6 bg-black text-white font-black text-xs rounded-2xl text-center uppercase tracking-widest hover:scale-105 transition-transform">
-                        Apply Now
+                    <div className="absolute inset-0 h-full w-full rounded-[2.5rem] bg-[#22c55e] p-10 text-black [transform:rotateY(180deg)] [backface-visibility:hidden] flex flex-col justify-between">
+                      <p className="text-lg font-black leading-tight italic tracking-tight">{card.desc}</p>
+                      <Link href={card.link} target="_blank" className="w-full py-5 bg-black text-white font-black text-[10px] rounded-xl text-center uppercase tracking-widest hover:scale-105 transition-transform">
+                        Get Started
                       </Link>
                     </div>
                   </div>
