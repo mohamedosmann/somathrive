@@ -25,7 +25,7 @@ export default function Home() {
     <div className="min-h-screen bg-[#06090a] text-white font-inter selection:bg-[#22c55e]/20">
       {/* Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-[#06090a]/80 backdrop-blur-md border-b border-white/5 py-4" : "py-8"}`}>
-        <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
+        <div className="max-w-[1920px] mx-auto px-6 md:px-[191px] flex justify-between items-center">
           <Link href="/" className="flex items-center gap-2 group">
             <span className="text-xl font-bold tracking-tight">Soma<span className="text-[#22c55e]">Thrive</span></span>
           </Link>
@@ -51,8 +51,8 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center pt-20">
-        <div className="max-w-[1920px] mx-auto px-6 md:px-[191px] relative z-20 grid lg:grid-cols-2 gap-20 xl:gap-32 items-center">
+      <section className="relative min-h-screen flex items-center pt-20">
+        <div className="max-w-[1920px] mx-auto px-6 md:px-[191px] grid lg:grid-cols-2 gap-20 xl:gap-32 items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -83,46 +83,90 @@ export default function Home() {
             >
               <Image src="/hero-2.jpg" alt="SomaThrive Community" fill className="object-cover" />
             </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="relative aspect-[4/3] rounded-[2rem] overflow-hidden border border-white/10"
+            >
+              <Image src="/hero-1.png" alt="SomaThrive Session" fill className="object-cover" />
+            </motion.div>
+            <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-[#22c55e]/5 blur-[100px] rounded-full pointer-events-none" />
+          </div>
+        </div>
+      </section>
 
-            <div className="space-y-8">
+      {/* About Section - Criss Cross Modern Layout */}
+      <section id="about" className="py-40 bg-[#06090a] overflow-hidden">
+        <div className="max-w-[1920px] mx-auto px-6 md:px-[191px]">
+          <div className="grid lg:grid-cols-2 gap-24 items-center">
+            {/* Left Column: Mission & Descriptive Text */}
+            <div className="space-y-12">
               <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="relative aspect-[4/3] rounded-[2rem] overflow-hidden border border-white/10"
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
               >
-                <Image src="/hero-1.png" alt="SomaThrive Session" fill className="object-cover" />
+                <h2 className="text-3xl md:text-5xl font-bold mb-8 leading-tight">
+                  Driven by needs, <br />
+                  led by <span className="text-[#22c55e]">experience</span>.
+                </h2>
+                <p className="text-xl text-gray-400 leading-relaxed max-w-xl">
+                  A student-led platform providing clear pathways to international scholarships and academic mentorship.
+                </p>
               </motion.div>
 
-              <div className="grid grid-cols-1 gap-6">
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.5 }}
-                  className="p-8 rounded-[2rem] bg-white/[0.03] border border-white/5"
-                >
-                  <h4 className="text-[#22c55e] text-xs font-bold uppercase tracking-widest mb-4">Our Mission</h4>
-                  <p className="text-sm text-gray-400 leading-relaxed">To increase access to global learning for Somali students through tailored guidance, mentorship, and support.</p>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.6 }}
-                  className="p-8 rounded-[2rem] bg-white/[0.03] border border-white/5"
-                >
-                  <h4 className="text-[#22c55e] text-xs font-bold uppercase tracking-widest mb-4">Our Vision</h4>
-                  <p className="text-sm text-gray-400 leading-relaxed">A confident generation of Somali students competing globally, achieving excellence and transforming their communities.</p>
-                </motion.div>
-              </div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="p-10 rounded-[3rem] bg-white/[0.03] border border-white/5 relative group"
+              >
+                <div className="absolute top-8 right-8 text-[#22c55e] opacity-20 group-hover:opacity-100 transition-opacity">
+                  <svg width="40" height="40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <h4 className="text-[#22c55e] text-xs font-bold uppercase tracking-[0.3em] mb-6">Our Mission</h4>
+                <p className="text-lg text-gray-300 leading-relaxed">
+                  To increase access to global learning for Somali students through tailored guidance, mentorship, and support.
+                </p>
+              </motion.div>
             </div>
-            <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-[#22c55e]/5 blur-[100px] rounded-full pointer-events-none" />
+
+            {/* Right Column: Vision Criss-Cross with Hero-2 image style */}
+            <div className="relative">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="relative aspect-square rounded-[3rem] overflow-hidden border border-white/10 max-w-md mx-auto"
+              >
+                <Image src="/hero-2.jpg" alt="Mentorship" fill className="object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#06090a] to-transparent" />
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="absolute -bottom-10 -right-6 md:right-10 p-10 rounded-[3rem] bg-[#0a0d0e] border border-white/5 shadow-2xl max-w-sm z-20"
+              >
+                <h4 className="text-[#22c55e] text-xs font-bold uppercase tracking-[0.3em] mb-6">Our Vision</h4>
+                <p className="text-lg text-gray-300 leading-relaxed">
+                  A confident generation of Somali students competing globally, achieving excellence and transforming their communities.
+                </p>
+              </motion.div>
+
+              <div className="absolute -top-20 -right-20 w-80 h-80 bg-[#22c55e]/5 blur-[120px] rounded-full pointer-events-none" />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Focus Areas */}
       <section id="programs" className="py-32">
-        <div className="container mx-auto px-6 md:px-12">
+        <div className="max-w-[1920px] mx-auto px-6 md:px-[191px]">
           <div className="mb-20">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Focus</h2>
             <div className="h-1 w-12 bg-[#22c55e] rounded-full" />
@@ -152,51 +196,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="py-32 bg-[#0a0d0e]">
-        <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-24 items-center">
-          <div>
-            <h2 className="text-3xl md:text-5xl font-bold mb-10 leading-tight">
-              Driven by student needs, <br />
-              led by student <span className="text-[#22c55e]">experience</span>.
-            </h2>
-            <p className="text-lg text-gray-400 leading-relaxed mb-8">
-              A student-led platform providing clear pathways to international scholarships and academic mentorship.
-            </p>
-            <div className="grid grid-cols-2 gap-8 pt-8 border-t border-white/5">
-              <div>
-                <h4 className="text-[#22c55e] font-bold text-2xl mb-1">200+</h4>
-                <p className="text-sm text-gray-500 uppercase tracking-widest font-bold">Students Helped</p>
-              </div>
-              <div>
-                <h4 className="text-[#22c55e] font-bold text-2xl mb-1">15+</h4>
-                <p className="text-sm text-gray-500 uppercase tracking-widest font-bold">Active Mentors</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-4">
-            <div className="space-y-4">
-              <div className="aspect-[3/4] rounded-3xl overflow-hidden relative">
-                <Image src="/speaker-1.jpg" alt="Team" fill className="object-cover" />
-              </div>
-              <div className="aspect-square rounded-3xl overflow-hidden relative bg-[#22c55e]/10 border border-[#22c55e]/20 flex items-center justify-center p-6 text-center">
-                <p className="text-sm font-bold opacity-60 italic">"Empowering the next generation."</p>
-              </div>
-            </div>
-            <div className="space-y-4 pt-12">
-              <div className="aspect-square rounded-3xl overflow-hidden relative bg-white/5" />
-              <div className="aspect-[3/4] rounded-3xl overflow-hidden relative">
-                <Image src="/speaker-2.jpg" alt="Team" fill className="object-cover" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Support / CTA */}
       <section id="support" className="py-32">
-        <div className="container mx-auto px-6 md:px-12">
+        <div className="max-w-[1920px] mx-auto px-6 md:px-[191px]">
           <div className="bg-[#22c55e] rounded-[3rem] p-12 md:p-24 text-black text-center relative overflow-hidden group">
             <div className="relative z-10 max-w-3xl mx-auto">
               <h2 className="text-4xl md:text-6xl font-bold mb-8 tracking-tight">Ready to start <br /> your journey?</h2>
@@ -204,7 +206,7 @@ export default function Home() {
                 Whether you're a student seeking guidance or a professional wanting to give back, we'd love to have you.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Link href="https://docs.google.com/forms/d/e/1FAIpQLScLrSQ6vBLkGbd6vA3OYws0IdAHgHMZ9tkpKcO4-N_aIuT6Xg/viewform" target="_blank" className="px-10 py-5 bg-black text-white font-bold rounded-2xl hover:scale-105 transition-transform">
+                <Link href="https://docs.google.com/forms/d/e/1FAIpQLScLrSQ6vBLkGbd6vA3OYws0IdAHgHMZ9tkpKcO4-N_aIuT6Xg/viewform?usp=dialog" target="_blank" className="px-10 py-5 bg-black text-white font-bold rounded-2xl hover:scale-105 transition-transform">
                   Apply for Support
                 </Link>
                 <Link href="#contact" className="px-10 py-5 bg-white text-black font-bold rounded-2xl hover:scale-105 transition-transform">
@@ -219,7 +221,7 @@ export default function Home() {
 
       {/* Contact & Footer */}
       <footer id="contact" className="py-32 border-t border-white/5 bg-[#06090a]">
-        <div className="container mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-24">
+        <div className="max-w-[1920px] mx-auto px-6 md:px-[191px] grid lg:grid-cols-2 gap-24">
           <div>
             <h2 className="text-4xl font-bold mb-8">Get in touch</h2>
             <p className="text-xl text-gray-400 mb-12">Have questions? We're here to help.</p>
