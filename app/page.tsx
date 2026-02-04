@@ -59,13 +59,11 @@ export default function Home() {
             className="max-w-2xl"
           >
             <h1 className="text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight mb-8">
-              Helping Somali students <br />
-              <span className="text-[#22c55e]">Learn, Grow & Access</span> <br />
-              global opportunities.
+              Helping Somali <br />
+              Students <br />
+              <span className="text-[#22c55e]">Learn, Grow & Access <br />
+                Global Opportunities</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-400 mb-12 leading-relaxed max-w-xl">
-              A student-led platform providing clear pathways to international scholarships and academic mentorship.
-            </p>
             <div className="flex flex-wrap gap-4">
               <Link href="#programs" className="px-8 py-4 bg-[#22c55e] text-black font-bold rounded-xl hover:bg-white transition-all transform hover:-translate-y-1">
                 Explore Programs
@@ -137,7 +135,7 @@ export default function Home() {
               led by student <span className="text-[#22c55e]">experience</span>.
             </h2>
             <p className="text-lg text-gray-400 leading-relaxed mb-8">
-              SomaThrive bridge the gap between talent and opportunity. We believe every Somali student deserves a fair chance at world-class education.
+              A student-led platform providing clear pathways to international scholarships and academic mentorship.
             </p>
             <div className="grid grid-cols-2 gap-8 pt-8 border-t border-white/5">
               <div>
